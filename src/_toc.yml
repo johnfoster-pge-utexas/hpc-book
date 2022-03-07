@@ -13,5 +13,5 @@ chapters:
   - file: JuliaLoops
   - file: Plots.jl
   - file: AutomaticDifferentiation
-  - file: DifferentialEquations.jl
+#- file: DifferentialEquations.jl
 
