@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For loops &#8212; An Introduction to High-Performance Computing</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Install" href="Plots.jl.html" />
+    <link rel="prev" title="Conditional operators" href="JuliaConditionalsFlowControl.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">An Introduction to High-Performance Computing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction to High-Performance Computing
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="JuliaChapterIntro.html">
+   Introduction to Julia
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="IntroductionToJulia.html">
+     Why Julia?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaFunctions.html">
+     Function definitions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaTypes.html">
+     Types and type declarations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaDataStructures.html">
+     Common Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaConditionalsFlowControl.html">
+     Conditional operators
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     For loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Plots.jl.html">
+     Install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AutomaticDifferentiation.html">
+     Recall the chain rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DifferentialEquations.jl.html">
+     Install
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/JuliaLoops.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/johnfoster-pge-utexas/hpc-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/johnfoster-pge-utexas/hpc-book/issues/new?title=Issue%20on%20page%20%2FJuliaLoops.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/JuliaLoops.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   For loops
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list-comprehensions">
+   List comprehensions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enumerate">
+   Enumerate
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#while-loops">
+   While loops
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>For loops</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   For loops
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list-comprehensions">
+   List comprehensions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enumerate">
+   Enumerate
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#while-loops">
+   While loops
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p>Looping structures, i.e. <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, are another method of flow control in Julia programming.  They can be used to perform structured and/or repeated tasks that occur numerous times in a compact way.</p>
+<div class="tex2jax_ignore mathjax_ignore section" id="for-loops">
+<h1>For loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h1>
+<p>For loops are a looping structure that allows for iteration over a fixed number of items.  The items can simply be monotonically increasing integers, in which case the loop simply cycles a fixed number of times.  Additionally, the items can by items from a Julia <code class="docutils literal notranslate"><span class="pre">Array</span></code>, <code class="docutils literal notranslate"><span class="pre">Tuple</span></code>, or <code class="docutils literal notranslate"><span class="pre">Dict</span></code> or other iterable types</p>
+<p>For demonstration purposes, let’s start with a Julia <code class="docutils literal notranslate"><span class="pre">Array</span></code> of type <code class="docutils literal notranslate"><span class="pre">Any</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3-element Vector{Any}:
+ 1
+ 2.0
+  &quot;hello&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can write a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that iterates over each item in the list one at a time and prints the item to the screen.</p>
+<p>In this loop <code class="docutils literal notranslate"><span class="pre">item</span></code> becomes a <em>variable</em> internal to the loop that each entry in <code class="docutils literal notranslate"><span class="pre">alist</span></code> gets assigned to one-by-one as the program cycles through the body of the loop until the end of <code class="docutils literal notranslate"><span class="pre">alist</span></code> has been reached.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">alist</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2.0
+hello
+</pre></div>
+</div>
+</div>
+</div>
+<p>The loop above is exactly equivalent to this code</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">item</span> <span class="o">=</span> <span class="n">alist</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">println</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">alist</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">println</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">alist</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">println</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2.0
+hello
+</pre></div>
+</div>
+</div>
+</div>
+<p>The code above is said to be the <em>unrolling</em> of the loop.  Of course, if <code class="docutils literal notranslate"><span class="pre">alist</span></code> had many items in it, we would not want to type all the lines of code required to perform the operation without the loop.</p>
+<p>Just like Julia functions and if statements, loops use and <code class="docutils literal notranslate"><span class="pre">end</span></code> keyword to indicate the end of <em>body</em> of the loop.  What is in the body gets executed every cycle through the loop, any valid Julia code can be placed in the body.</p>
+<p>The <a class="reference external" href="https://docs.julialang.org/en/v1.7/base/collections/#Base.StepRange"><code class="docutils literal notranslate"><span class="pre">StepRange</span></code></a> type provides a quick way to generate a monotonically increasing set of integers for iteration.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="mi">6</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">i</span> <span class="o">^</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+4
+16
+36
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tuples can be iterated over in a for loop just like lists.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">atuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">atuple</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+3
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dictionaries can also be iterated over, by default iterating over a <code class="docutils literal notranslate"><span class="pre">Dict</span></code> returns a tuple of (key, value) pairs to be unpacked and assigned each to variables local to the loop.</p>
+<p>If only dictionary keywords where desired for iteration in the loop, the <code class="docutils literal notranslate"><span class="pre">keys()</span></code> function could be used.  Likewise <code class="docutils literal notranslate"><span class="pre">values()</span></code> can be used if only the values are desired.  The functions turn the respective keys and/or values into an <code class="docutils literal notranslate"><span class="pre">Array</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">adict</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span><span class="s">&quot;name1&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Romeo&quot;</span><span class="p">,</span> <span class="s">&quot;name2&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Juliet&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="n">adict</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span><span class="s"> is </span><span class="si">$</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name2 is Juliet
+name1 is Romeo
+</pre></div>
+</div>
+</div>
+</div>
+<p>Often times we would like to store the results of computations in a <code class="docutils literal notranslate"><span class="pre">Array</span></code> as the loop executes.  One way to do this is using the <code class="docutils literal notranslate"><span class="pre">push!()</span></code> function defined for <code class="docutils literal notranslate"><span class="pre">Array</span></code>s.  Here we start with an empty <code class="docutils literal notranslate"><span class="pre">Array</span></code> of type <code class="docutils literal notranslate"><span class="pre">Any</span></code> and append the square of the integer range of numbers from 0 to 10 each cycle through the loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="mi">10</span>
+    <span class="n">push!</span><span class="p">(</span><span class="n">alist</span><span class="p">,</span> <span class="n">item</span> <span class="o">^</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+<span class="k">end</span>
+    
+<span class="n">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Any[0]
+Any[0, 1]
+Any[0, 1, 4]
+Any[0, 1, 4, 9]
+Any[0, 1, 4, 9, 16]
+Any[0, 1, 4, 9, 16, 25]
+Any[0, 1, 4, 9, 16, 25, 36]
+Any[0, 1, 4, 9, 16, 25, 36, 49]
+Any[0, 1, 4, 9, 16, 25, 36, 49, 64]
+Any[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+Any[0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+Any[0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="list-comprehensions">
+<h1>List comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">¶</a></h1>
+<p>There is another type of for loop structure that can be used in Julia when it is desired to store the output of computations from a loop in a <code class="docutils literal notranslate"><span class="pre">Array</span></code>.  These are called <em>comprehensions</em>.  An example of a list comprehension that produces the same result as the for loop above is</p>
+<p>In a list comprehension, the body of the loop goes before the <code class="docutils literal notranslate"><span class="pre">for</span></code> keyword.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span> <span class="o">=</span> <span class="kt">Any</span><span class="p">[</span><span class="n">item</span> <span class="o">^</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">item</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Any[0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="enumerate">
+<h1>Enumerate<a class="headerlink" href="#enumerate" title="Permalink to this headline">¶</a></h1>
+<p>Occasionally, in addition to iterating over the actual items in a <code class="docutils literal notranslate"><span class="pre">Array</span></code>/<code class="docutils literal notranslate"><span class="pre">Tuple</span></code>, the integer index corresponding to the location in the data structure is also desired.  This can be returned with the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function.  For example,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">atuple</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;tuple&quot;</span><span class="p">,</span> <span class="s">&quot;of&quot;</span><span class="p">,</span> <span class="s">&quot;strings&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="k">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">atuple</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="s"> -- has the index </span><span class="si">$</span><span class="p">(</span><span class="n">count</span><span class="p">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a -- has the index 1
+tuple -- has the index 2
+of -- has the index 3
+strings -- has the index 4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="while-loops">
+<h1>While loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h1>
+<p>While loops continuously execute the body of the loop so long as some conditional statement is evaluating to <code class="docutils literal notranslate"><span class="pre">true</span></code>.  The conditional statement appears to the right of the <code class="docutils literal notranslate"><span class="pre">while</span></code> keyword.  In the example below, we use a very simple conditional statement, but any valid conditional expression in Julia, including <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">||</span></code> operators can be used.</p>
+<p>Here the conditional statement is <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">5</span></code> which of course is <code class="docutils literal notranslate"><span class="pre">true</span></code> with the given initial value of <code class="docutils literal notranslate"><span class="pre">i=0</span></code>.  So the body of the loop executes, each time incrementing <code class="docutils literal notranslate"><span class="pre">i</span></code> by 1, until <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">5</span></code> which causes the conditional statement to evaluate to <code class="docutils literal notranslate"><span class="pre">false</span></code> and the loop exits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span>
+    
+    <span class="n">println</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>If the conditional statement in a while loop never evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the loop will execute ad infinitum.  If new variables are being assigned in the body of the loop or the results of computations are stored, the infinite cycling can cause the computer’s memory to fill and possibly lead to a crash of the program and/or computer.  It’s often desirable to have a set number of maximum iterations that if reached will guarantee the loop will exit.  In this case, the functionality of a while loop can be replicated with the combination of a for loop and an if statement with a <code class="docutils literal notranslate"><span class="pre">break</span></code> keyword.  For example, the while loop structure above is replicated in the following code, but with the guard that the maximum number of iterations cannot exceed 10.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="mi">10</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">4</span>
+        <span class="k">break</span>
+    <span class="k">end</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.7"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.7",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.7'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="JuliaConditionalsFlowControl.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Conditional operators</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Plots.jl.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Install</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By John T. Foster<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

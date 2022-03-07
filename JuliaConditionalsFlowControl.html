@@ -1,0 +1,865 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conditional operators &#8212; An Introduction to High-Performance Computing</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="For loops" href="JuliaLoops.html" />
+    <link rel="prev" title="Common Data Structures" href="JuliaDataStructures.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">An Introduction to High-Performance Computing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction to High-Performance Computing
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="JuliaChapterIntro.html">
+   Introduction to Julia
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="IntroductionToJulia.html">
+     Why Julia?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaFunctions.html">
+     Function definitions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaTypes.html">
+     Types and type declarations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaDataStructures.html">
+     Common Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Conditional operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaLoops.html">
+     For loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Plots.jl.html">
+     Install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AutomaticDifferentiation.html">
+     Recall the chain rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DifferentialEquations.jl.html">
+     Install
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/JuliaConditionalsFlowControl.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/johnfoster-pge-utexas/hpc-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/johnfoster-pge-utexas/hpc-book/issues/new?title=Issue%20on%20page%20%2FJuliaConditionalsFlowControl.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/JuliaConditionalsFlowControl.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Conditional operators
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-subsets">
+     Testing subsets
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and-or-operations">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       and
+      </span>
+     </code>
+     /
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       or
+      </span>
+     </code>
+     operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-elseif-else-statements">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     if
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     elseif
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     else
+    </span>
+   </code>
+   statements
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nesting">
+     Nesting
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ternary-operator">
+     Ternary operator
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Conditional operators</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Conditional operators
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-subsets">
+     Testing subsets
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and-or-operations">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       and
+      </span>
+     </code>
+     /
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       or
+      </span>
+     </code>
+     operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-elseif-else-statements">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     if
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     elseif
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     else
+    </span>
+   </code>
+   statements
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nesting">
+     Nesting
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ternary-operator">
+     Ternary operator
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><em>Conditional statements</em> are tests to return whether a given comparison between two variables is <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.  They are used in combination with <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements to control the flow of a program.  For example, we may want to check if the inputs to a particular function or program is within some valid range, or non-negative. In the event that it is a valid input, we proceed with the calculations. In the event that it is an invalid input, we terminate the program and prompt the user to input a parameter that is valid.</p>
+<div class="tex2jax_ignore mathjax_ignore section" id="conditional-operators">
+<h1>Conditional operators<a class="headerlink" href="#conditional-operators" title="Permalink to this headline">¶</a></h1>
+<p>The conditional operators in Julia consist of the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code> for testing if two data types are <strong>equal</strong> to each other</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!=</span></code> for testing if two data types are <strong>not equal</strong> to each other</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> for testing if one data type is <strong>greater than</strong> another</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code> for testing if one data type is <strong>less than</strong> another</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> for testing if one data type is <strong>greater than or equal to</strong> another</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> for testing if one data type is <strong>less than or equal to</strong> another</p></li>
+</ul>
+<p>A few code examples with obvious outputs are shown below</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="mi">5</span> <span class="o">!=</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="mi">9</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="mi">10</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="mi">9</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>true
+true
+true
+true
+true
+true
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can <em>negate</em> any operation above by placing a <code class="docutils literal notranslate"><span class="pre">!</span></code> in front of it, e.g.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>false
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="testing-subsets">
+<h2>Testing subsets<a class="headerlink" href="#testing-subsets" title="Permalink to this headline">¶</a></h2>
+<p>You can also test if one element is a subset of another, e.g.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="k">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>true
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="k">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>true
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">dict</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span><span class="s">&quot;key1&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;key2&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;key3&quot;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">haskey</span><span class="p">(</span><span class="n">dict</span><span class="p">,</span> <span class="s">&quot;key1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>true
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="k">in</span> <span class="n">values</span><span class="p">(</span><span class="n">dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>true
+</pre></div>
+</div>
+</div>
+</div>
+<p>For strings we need to use the function <code class="docutils literal notranslate"><span class="pre">occursin()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">occursin</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span> <span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>true
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="and-or-operations">
+<h2><code class="docutils literal notranslate"><span class="pre">and</span></code> / <code class="docutils literal notranslate"><span class="pre">or</span></code> operations<a class="headerlink" href="#and-or-operations" title="Permalink to this headline">¶</a></h2>
+<p>We can combine multiple conditional statements using the <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">||</span></code> operators.  For example,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">9</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="mi">9</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>true
+</pre></div>
+</div>
+</div>
+</div>
+<p>These follow the following boolean logic</p>
+<ul class="simple">
+<li><p>true <code class="docutils literal notranslate"><span class="pre">and</span></code> true = true</p></li>
+<li><p>true <code class="docutils literal notranslate"><span class="pre">and</span></code> false = false</p></li>
+<li><p>false <code class="docutils literal notranslate"><span class="pre">and</span></code> false = false</p></li>
+<li><p>true <code class="docutils literal notranslate"><span class="pre">or</span></code> true = true</p></li>
+<li><p>true <code class="docutils literal notranslate"><span class="pre">or</span></code> false = true</p></li>
+<li><p>false <code class="docutils literal notranslate"><span class="pre">or</span></code> false = false</p></li>
+</ul>
+<p>As many <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">||</span></code> statements can be combined as desired.  It’s a good idea to use parenthesis when combining multiple <code class="docutils literal notranslate"><span class="pre">and</span></code>/<code class="docutils literal notranslate"><span class="pre">or</span></code> operations to ensure clarity in the order of operations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">true</span> <span class="o">&amp;&amp;</span> <span class="nb">false</span><span class="p">)</span> <span class="o">||</span> <span class="nb">true</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>true
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="if-elseif-else-statements">
+<h1><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elseif</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> statements<a class="headerlink" href="#if-elseif-else-statements" title="Permalink to this headline">¶</a></h1>
+<p>We control the flow of a program with <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements.  <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements use conditionals as a test and then execute code in the <em>body</em> of the <code class="docutils literal notranslate"><span class="pre">if</span></code>-statement when the test is <code class="docutils literal notranslate"><span class="pre">true</span></code>.  Below we define a function that takes a number <code class="docutils literal notranslate"><span class="pre">x</span></code> as an argument and prints <code class="docutils literal notranslate"><span class="pre">&quot;x</span> <span class="pre">is</span> <span class="pre">positive&quot;</span></code> if (and only if) the input value for <code class="docutils literal notranslate"><span class="pre">x</span></code> is greater than 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">test_if_x_is_positive</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;x is positive&quot;</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test_if_x_is_positive (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Running the function with a few inputs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">test_if_x_is_positive</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x is positive
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">test_if_x_is_positive</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice the second function call does not return anything at all, this is because the conditional statement evaluated to <code class="docutils literal notranslate"><span class="pre">False</span></code> and therefore the body of the <code class="docutils literal notranslate"><span class="pre">if</span></code>-statement was never executed.  We can add a <code class="docutils literal notranslate"><span class="pre">else</span></code> clause to the <code class="docutils literal notranslate"><span class="pre">elif</span></code>-statement (shorthand for <em>else if</em> that will execute given another conditional statement, perhaps checking to see if <code class="docutils literal notranslate"><span class="pre">x</span></code> is negative.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">test_if_x_is_positive_or_negative</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;x is positive&quot;</span><span class="p">)</span>
+    <span class="k">elseif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;x is negative&quot;</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test_if_x_is_positive_or_negative (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Running the function with a few inputs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">test_if_x_is_positive_or_negative</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">test_if_x_is_positive_or_negative</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x is positive
+x is negative
+</pre></div>
+</div>
+</div>
+</div>
+<p>achieves the expected result.  What about the case when <code class="docutils literal notranslate"><span class="pre">x</span></code> is exactly 0?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">test_if_x_is_positive_or_negative</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This case does not return any print statements because neither condition is met.  We could write a thrid condition to test if <code class="docutils literal notranslate"><span class="pre">x</span></code> is identically zero, or we could use an <code class="docutils literal notranslate"><span class="pre">else</span></code> clause which can be thought of as the “otherwise” condition.  The <code class="docutils literal notranslate"><span class="pre">else</span></code>-statement will execute in the event that none of the <code class="docutils literal notranslate"><span class="pre">if</span></code> or <code class="docutils literal notranslate"><span class="pre">elseif</span></code> conditions have been met. An <code class="docutils literal notranslate"><span class="pre">else</span></code>-statement is not followed by a condition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">test_if_x_is_positive_or_negative</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;x is positive&quot;</span><span class="p">)</span>
+    <span class="k">elseif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;x is negative&quot;</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;x is 0!&quot;</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test_if_x_is_positive_or_negative (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">test_if_x_is_positive_or_negative</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x is 0!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="nesting">
+<h2>Nesting<a class="headerlink" href="#nesting" title="Permalink to this headline">¶</a></h2>
+<p>You can also nest <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements inside each other. There is no limit to how many times this can be done.  An example is below.  This function takes two arguments <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">truncate_value</span></code>.  If <code class="docutils literal notranslate"><span class="pre">x</span></code> is less than<code class="docutils literal notranslate"><span class="pre">truncate_value</span></code> it returns <code class="docutils literal notranslate"><span class="pre">truncate_value</span></code>, otherwise is returns <code class="docutils literal notranslate"><span class="pre">x</span></code>.  It also allows <code class="docutils literal notranslate"><span class="pre">truncate_value</span></code> to be defined as <code class="docutils literal notranslate"><span class="pre">nothing</span></code> in which case it returns <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">truncate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">truncate_value</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">truncate_value</span> <span class="o">!=</span> <span class="nb">nothing</span>
+        
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">truncate_value</span>
+            <span class="k">return</span> <span class="n">truncate_value</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="n">x</span>
+        <span class="k">end</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>truncate (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="nd">@show</span> <span class="n">truncate</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nd">@show</span> <span class="n">truncate</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nd">@show</span> <span class="n">truncate</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">nothing</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>truncate(5, 4) = 5
+truncate(-4, 0) = 0
+truncate(5, nothing) = 5
+</pre></div>
+</div>
+</div>
+</div>
+<p>While you can nest <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements to any level, the readability of the code begins to suffer the deeper you go.  At some point, it’s generally better for readability and debugging mistakes in the code to break out some of the logic into smaller functions.  The example above is really too simple for this to be necessary, but an example is shown below to demonstrate the idea.</p>
+<p>The underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> in the function name <code class="docutils literal notranslate"><span class="pre">_truncate</span></code> is simply a convention to indicate that this function is never intended to be called directly by a user, but rather just a function that will be called in the body of other functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">_truncate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">truncate_value</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">truncate_value</span>
+        <span class="k">return</span> <span class="n">truncate_value</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="n">x</span> 
+    <span class="k">end</span>
+<span class="k">end</span>
+    
+<span class="k">function</span> <span class="n">truncate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">truncate_value</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">truncate_value</span> <span class="o">!=</span> <span class="nb">nothing</span>
+        
+        <span class="k">return</span> <span class="n">_truncate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">truncate_value</span><span class="p">)</span>
+    
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>truncate (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">truncate</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first function <code class="docutils literal notranslate"><span class="pre">_truncate</span></code> performs the truncation operation, but would error if <code class="docutils literal notranslate"><span class="pre">truncate_value</span> <span class="pre">=</span> <span class="pre">nothing</span></code>.  The second function checks to ensure that <code class="docutils literal notranslate"><span class="pre">truncate_value</span> <span class="pre">!=</span> <span class="pre">nothing</span></code> and if this is <code class="docutils literal notranslate"><span class="pre">true</span></code>, then it calls the first function.</p>
+</div>
+<div class="section" id="ternary-operator">
+<h2>Ternary operator<a class="headerlink" href="#ternary-operator" title="Permalink to this headline">¶</a></h2>
+<p>The ternary operator is a shorthand single line <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> statement that has the form</p>
+<p><code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">?</span> <span class="pre">do</span> <span class="pre">if</span> <span class="pre">test</span> <span class="pre">is</span> <span class="pre">true</span> <span class="pre">:</span> <span class="pre">do</span> <span class="pre">if</span> <span class="pre">test</span> <span class="pre">is</span> <span class="pre">false</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">ternary_truncate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">truncate_value</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">truncate_value</span> <span class="o">?</span> <span class="n">truncate_value</span> <span class="o">:</span> <span class="n">x</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ternary_truncate (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="nd">@show</span> <span class="n">ternary_truncate</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nd">@show</span> <span class="n">ternary_truncate</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ternary_truncate(-4, 0) = 0
+ternary_truncate(5, 0) = 5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.7"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.7",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.7'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="JuliaDataStructures.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Common Data Structures</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="JuliaLoops.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">For loops</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By John T. Foster<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
