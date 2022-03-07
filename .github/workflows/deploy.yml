@@ -18,6 +18,10 @@ jobs:
     - uses: actions/checkout@v2
 
     # Install dependencies
+    - name: Set up Julia
+      uses: julia-actions/cache@v1
+    - name: Install Julia dependencies
+      uses: julia-actions/julia-buildpkg@v1
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
       with:
@@ -29,7 +33,7 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build hpc
+        jupyter-book build src
 
     # Deploy the book's HTML to gh-pages branch
     - name: GitHub Pages action

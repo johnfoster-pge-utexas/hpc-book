@@ -1,0 +1,17 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: JuliaChapterIntro
+  sections:
+  - file: JuliaFunctions
+  - file: JuliaTypes
+  - file: JuliaDataStructures
+  - file: JuliaConditionalsFlowControl
+  - file: JuliaLoops
+  - file: Plots.jl
+  - file: AutomaticDifferentiation
+  - file: DifferentialEquations.jl
+
