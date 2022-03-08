@@ -27,12 +27,12 @@ $$
 
 where
 
-\begin{align}
+\begin{align*}
 w_0 &= input \\
 w_1 &= h(w_0) \\
 w_2 &= g(w_1) \\
 w_3 &= f(w_2) = output
-\end{align}
+\end{align*}
 
 If we want to compute
 
