@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Install &#8212; An Introduction to High-Performance Computing</title>
+    <title>Differential Equations.jl &#8212; An Introduction to High-Performance Computing</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Recall the chain rule" href="AutomaticDifferentiation.html" />
+    <link rel="prev" title="Automatic Differentiation" href="AutomaticDifferentiation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -117,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaFunctions.html">
-     Function definitions
+     Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -132,27 +132,27 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaConditionalsFlowControl.html">
-     Conditional operators
+     Conditionals and Flow Control
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaLoops.html">
-     For loops
+     For and While Loops
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Plots.jl.html">
-     Install
+    <a class="reference internal" href="Plots_jl.html">
+     Plots.jl
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="AutomaticDifferentiation.html">
-     Recall the chain rule
+     Automatic Differentiation
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Install
+     Differential Equations.jl
     </a>
    </li>
   </ul>
@@ -196,11 +196,14 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/DifferentialEquations.jl.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="_sources/DifferentialEquations_jl.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/DifferentialEquations_jl.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -218,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/johnfoster-pge-utexas/hpc-book/issues/new?title=Issue%20on%20page%20%2FDifferentialEquations.jl.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/johnfoster-pge-utexas/hpc-book/issues/new?title=Issue%20on%20page%20%2FDifferentialEquations_jl.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -239,7 +242,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/DifferentialEquations.jl.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/DifferentialEquations_jl.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -261,49 +264,49 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install">
    Install
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-robertson-equations">
    Example - Robertson Equations
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#user-defined-jacobian">
      User defined Jacobian
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#automatic-differentiation-jacobian">
      Automatic differentiation Jacobian
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#solve-with-staticarrays">
      Solve with StaticArrays
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mass-matrix-odes">
    Mass matrix ODEs
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#implicitly-defined-odes-daes">
    Implicitly defined ODEs/DAEs
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#implicit-ode-dae-with-jacobian">
      Implicit ODE/DAE with Jacobian
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#automatic-differentiation-jacobian-staticarrays">
      Automatic differentiation Jacobian (StaticArrays)
     </a>
@@ -320,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Install</h1>
+                <h1>Differential Equations.jl</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -330,49 +333,49 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install">
    Install
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-robertson-equations">
    Example - Robertson Equations
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#user-defined-jacobian">
      User defined Jacobian
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#automatic-differentiation-jacobian">
      Automatic differentiation Jacobian
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#solve-with-staticarrays">
      Solve with StaticArrays
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mass-matrix-odes">
    Mass matrix ODEs
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#implicitly-defined-odes-daes">
    Implicitly defined ODEs/DAEs
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#implicit-ode-dae-with-jacobian">
      Implicit ODE/DAE with Jacobian
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#automatic-differentiation-jacobian-staticarrays">
      Automatic differentiation Jacobian (StaticArrays)
     </a>
@@ -388,7 +391,9 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <p><a class="reference external" href="https://diffeq.sciml.ai/stable/">DifferentialEquations.jl</a> is likely the most sophisticated differential equation solver suite available in any language.  There are more than 200 methods implemented that are capable of solving all types of differential equations including</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="differential-equations-jl">
+<h1>Differential Equations.jl<a class="headerlink" href="#differential-equations-jl" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://diffeq.sciml.ai/stable/">DifferentialEquations.jl</a> is likely the most sophisticated differential equation solver suite available in any language.  There are more than 200 methods implemented that are capable of solving all types of differential equations including</p>
 <ul class="simple">
 <li><p>Discrete equations (function maps, discrete stochastic (Gillespie/Markov) simulations)</p></li>
 <li><p>Ordinary differential equations (ODEs)</p></li>
@@ -405,8 +410,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>(Stochastic) partial differential equations ((S)PDEs) (with both finite difference and finite element methods)</p></li>
 </ul>
 <p>See <a class="reference external" href="https://diffeq.sciml.ai/stable/">documentation</a> for more.</p>
-<div class="tex2jax_ignore mathjax_ignore section" id="install">
-<h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://diffeq.sciml.ai/stable/">DifferentialEquations.jl</a> is not installed by default when Julia is installed.  To ensure it’s installed, either run</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Pkg</span><span class="p">;</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;DifferentialEquations&quot;</span><span class="p">)</span>
 </pre></div>
@@ -416,13 +421,14 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="example-robertson-equations">
-<h1>Example - Robertson Equations<a class="headerlink" href="#example-robertson-equations" title="Permalink to this headline">¶</a></h1>
-<p>\begin{align}
-\frac{dy_1}{dt} &amp;= -0.04y_1 + 10^4 y_2 y_3 \
-\frac{dy_2}{dt} &amp;=  0.04y_1 - 10^4 y_2 y_3 - 3 * 10^7 y_2^2 \
+<div class="section" id="example-robertson-equations">
+<h2>Example - Robertson Equations<a class="headerlink" href="#example-robertson-equations" title="Permalink to this headline">¶</a></h2>
+<div class="amsmath math notranslate nohighlight" id="equation-94270c0a-d409-48af-bd13-500d4e183a85">
+<span class="eqno">(3)<a class="headerlink" href="#equation-94270c0a-d409-48af-bd13-500d4e183a85" title="Permalink to this equation">¶</a></span>\[\begin{align}
+\frac{dy_1}{dt} &amp;= -0.04y_1 + 10^4 y_2 y_3 \\
+\frac{dy_2}{dt} &amp;=  0.04y_1 - 10^4 y_2 y_3 - 3 * 10^7 y_2^2 \\
 \frac{dy_3}{dt} &amp;=  3 * 10^7 y_2^2
-\end{align}</p>
+\end{align}\]</div>
 <p>Define the system of equations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -471,45 +477,40 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">InterruptException</span>:
 
 <span class="ne">Stacktrace</span>:
-  <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">gr_display</span><span class="p">(</span><span class="n">plt</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">Plot</span><span class="p">{</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">},</span> <span class="n">fmt</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
-    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">NQpB8</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">backends</span><span class="o">/</span><span class="n">gr</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">652</span>
-  <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">_show</span><span class="p">(</span><span class="n">io</span><span class="p">::</span><span class="n">IOBuffer</span><span class="p">,</span> <span class="c1">#unused#::MIME{Symbol(&quot;image/svg+xml&quot;)}, plt::Plots.Plot{Plots.GRBackend})</span>
-    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">NQpB8</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">backends</span><span class="o">/</span><span class="n">gr</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">2169</span>
-  <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">show</span><span class="p">(</span><span class="n">io</span><span class="p">::</span><span class="n">IOBuffer</span><span class="p">,</span> <span class="n">m</span><span class="p">::</span><span class="n">MIME</span><span class="p">{</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;image/svg+xml&quot;</span><span class="p">)},</span> <span class="n">plt</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">Plot</span><span class="p">{</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">})</span>
-    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">NQpB8</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">output</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">205</span>
-  <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">sprint</span><span class="p">(::</span><span class="n">Function</span><span class="p">,</span> <span class="p">::</span><span class="n">MIME</span><span class="p">{</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;image/svg+xml&quot;</span><span class="p">)},</span> <span class="p">::</span><span class="n">Vararg</span><span class="p">{</span><span class="n">Any</span><span class="p">};</span> <span class="n">context</span><span class="p">::</span><span class="n">Nothing</span><span class="p">,</span> <span class="n">sizehint</span><span class="p">::</span><span class="n">Int64</span><span class="p">)</span>
-    <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">strings</span><span class="o">/</span><span class="n">io</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">114</span>
-  <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">sprint</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">strings</span><span class="o">/</span><span class="n">io</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">108</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
-  <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="n">_ijulia_display_dict</span><span class="p">(</span><span class="n">plt</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">Plot</span><span class="p">{</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">})</span>
-    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">NQpB8</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">ijulia</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">47</span>
-  <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="n">display_dict</span><span class="p">(</span><span class="n">plt</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">Plot</span><span class="p">{</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">})</span>
-    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">NQpB8</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">92</span>
-  <span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="c1">#invokelatest#2</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">essentials</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">716</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
-  <span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="n">invokelatest</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">essentials</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">714</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="n">execute_request</span><span class="p">(</span><span class="n">socket</span><span class="p">::</span><span class="n">ZMQ</span><span class="o">.</span><span class="n">Socket</span><span class="p">,</span> <span class="n">msg</span><span class="p">::</span><span class="n">IJulia</span><span class="o">.</span><span class="n">Msg</span><span class="p">)</span>
-    <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">e8kqU</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">execute_request</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">112</span>
- <span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="c1">#invokelatest#2</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">essentials</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">716</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="n">invokelatest</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">essentials</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">714</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="n">eventloop</span><span class="p">(</span><span class="n">socket</span><span class="p">::</span><span class="n">ZMQ</span><span class="o">.</span><span class="n">Socket</span><span class="p">)</span>
-    <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">e8kqU</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">eventloop</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">8</span>
- <span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="p">(::</span><span class="n">IJulia</span><span class="o">.</span><span class="n">var</span><span class="s2">&quot;#15#18&quot;</span><span class="p">)()</span>
-    <span class="o">@</span> <span class="n">IJulia</span> <span class="o">./</span><span class="n">task</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">423</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">like_surface</span>
+    <span class="o">@</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">NQpB8</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">args</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">140</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+  <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">get_series_color</span><span class="p">(</span><span class="n">c</span><span class="p">::</span><span class="n">Symbol</span><span class="p">,</span> <span class="n">sp</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">Subplot</span><span class="p">{</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">},</span> <span class="n">n</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">seriestype</span><span class="p">::</span><span class="n">Symbol</span><span class="p">)</span>
+    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">NQpB8</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">args</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">2096</span>
+  <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">_update_series_attributes</span><span class="o">!(</span>plotattributes::RecipesPipeline.DefaultsDict, plt::Plots.Plot<span class="o">{</span>Plots.GRBackend<span class="o">}</span>, sp::Plots.Subplot<span class="o">{</span>Plots.GRBackend<span class="o">})</span>
+    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">NQpB8</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">args</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">2185</span>
+  <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">add_series</span><span class="o">!(</span>plt::Plots.Plot<span class="o">{</span>Plots.GRBackend<span class="o">}</span>, plotattributes::RecipesPipeline.DefaultsDict<span class="o">)</span>
+    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">NQpB8</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">pipeline</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">342</span>
+  <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">_process_seriesrecipe</span><span class="p">(</span><span class="n">plt</span><span class="p">::</span><span class="n">Any</span><span class="p">,</span> <span class="n">plotattributes</span><span class="p">::</span><span class="n">Any</span><span class="p">)</span>
+    <span class="o">@</span> <span class="n">RecipesPipeline</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RecipesPipeline</span><span class="o">/</span><span class="n">oVorB</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">series_recipe</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">46</span>
+  <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="n">_process_seriesrecipes</span><span class="o">!(</span>plt::Any, kw_list::Any<span class="o">)</span>
+    <span class="o">@</span> <span class="n">RecipesPipeline</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RecipesPipeline</span><span class="o">/</span><span class="n">oVorB</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">series_recipe</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">27</span>
+  <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="n">recipe_pipeline</span><span class="o">!(</span>plt::Any, plotattributes::Any, args::Any<span class="o">)</span>
+    <span class="o">@</span> <span class="n">RecipesPipeline</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RecipesPipeline</span><span class="o">/</span><span class="n">oVorB</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">RecipesPipeline</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">97</span>
+  <span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="n">_plot</span><span class="o">!(</span>plt::Plots.Plot, plotattributes::Any, args::Any<span class="o">)</span>
+    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">NQpB8</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">208</span>
+  <span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="c1">#plot#137</span>
+    <span class="o">@</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">NQpB8</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">91</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
+    <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mi">4</span>
+ <span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="nb">eval</span>
+    <span class="o">@</span> <span class="o">./</span><span class="n">boot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">373</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="n">include_string</span><span class="p">(</span><span class="n">mapexpr</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">REPL</span><span class="o">.</span><span class="n">softscope</span><span class="p">),</span> <span class="n">mod</span><span class="p">::</span><span class="n">Module</span><span class="p">,</span> <span class="n">code</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">filename</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+    <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">loading</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">1196</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="user-defined-jacobian">
-<h2>User defined Jacobian<a class="headerlink" href="#user-defined-jacobian" title="Permalink to this headline">¶</a></h2>
-<p>The Jacobian <span class="math notranslate nohighlight">\(J\)</span> of a function <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[
+<h3>User defined Jacobian<a class="headerlink" href="#user-defined-jacobian" title="Permalink to this headline">¶</a></h3>
+<p>The Jacobian $J$ of a function $f(\mathbf{x})$ is</p>
+<p>$$
 J_{ij} = \frac{\partial f(\mathbf{x})_i}{\partial x_j}
-\]</div>
+$$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">rober_jac!</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
@@ -526,11 +527,6 @@ J_{ij} = \frac{\partial f(\mathbf{x})_i}{\partial x_j}
   <span class="n">J</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="nb">nothing</span>
 <span class="k">end</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rober_jac! (generic function with 1 method)
 </pre></div>
 </div>
 </div>
@@ -552,8 +548,6 @@ J_{ij} = \frac{\partial f(\mathbf{x})_i}{\partial x_j}
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/DifferentialEquations.jl_14_0.svg" src="_images/DifferentialEquations.jl_14_0.svg" /></div>
 </div>
 <p>Benchmark the two solves.</p>
 <div class="cell docutils container">
@@ -565,16 +559,10 @@ J_{ij} = \frac{\partial f(\mathbf{x})_i}{\partial x_j}
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  63.500 μs (438 allocations: 38.41 KiB)
-  56.593 μs (355 allocations: 32.34 KiB)
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="automatic-differentiation-jacobian">
-<h2>Automatic differentiation Jacobian<a class="headerlink" href="#automatic-differentiation-jacobian" title="Permalink to this headline">¶</a></h2>
+<h3>Automatic differentiation Jacobian<a class="headerlink" href="#automatic-differentiation-jacobian" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">ForwardDiff</span>
@@ -584,11 +572,6 @@ J_{ij} = \frac{\partial f(\mathbf{x})_i}{\partial x_j}
   <span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian!</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rober!</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span> <span class="n">out</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span> 
   <span class="nb">nothing</span>
 <span class="k">end</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rober_jac_auto! (generic function with 1 method)
 </pre></div>
 </div>
 </div>
@@ -608,8 +591,6 @@ J_{ij} = \frac{\partial f(\mathbf{x})_i}{\partial x_j}
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/DifferentialEquations.jl_20_0.svg" src="_images/DifferentialEquations.jl_20_0.svg" /></div>
 </div>
 <p>Benchmark all three solves</p>
 <div class="cell docutils container">
@@ -620,17 +601,10 @@ J_{ij} = \frac{\partial f(\mathbf{x})_i}{\partial x_j}
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  74.263 μs (438 allocations: 38.41 KiB)
-  62.635 μs (355 allocations: 32.34 KiB)
-  92.727 μs (775 allocations: 70.78 KiB)
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="solve-with-staticarrays">
-<h2>Solve with StaticArrays<a class="headerlink" href="#solve-with-staticarrays" title="Permalink to this headline">¶</a></h2>
+<h3>Solve with StaticArrays<a class="headerlink" href="#solve-with-staticarrays" title="Permalink to this headline">¶</a></h3>
 <p>This approach can work well for small systems (&lt; 20 ODEs)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -649,11 +623,6 @@ J_{ij} = \frac{\partial f(\mathbf{x})_i}{\partial x_j}
 <span class="k">function</span> <span class="n">rober_jac_auto_sa</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
   <span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">rober_sa</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span> <span class="n">u</span><span class="p">)</span>
 <span class="k">end</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rober_jac_auto_sa (generic function with 1 method)
 </pre></div>
 </div>
 </div>
@@ -677,35 +646,26 @@ J_{ij} = \frac{\partial f(\mathbf{x})_i}{\partial x_j}
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  63.330 μs (438 allocations: 38.41 KiB)
-  71.371 μs (355 allocations: 32.34 KiB)
-  93.321 μs (775 allocations: 70.78 KiB)
-  29.188 μs (175 allocations: 21.92 KiB)
-</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="mass-matrix-odes">
-<h1>Mass matrix ODEs<a class="headerlink" href="#mass-matrix-odes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mass-matrix-odes">
+<h2>Mass matrix ODEs<a class="headerlink" href="#mass-matrix-odes" title="Permalink to this headline">¶</a></h2>
 <p>Normally we seek to write our ODEs in the form</p>
-<div class="math notranslate nohighlight">
-\[
-u' = f(u, p, t)
-\]</div>
+<p>$$
+u’ = f(u, p, t)
+$$</p>
 <p>However, sometimes it’s common to have an equation in the form</p>
-<div class="math notranslate nohighlight">
-\[
-M u' = f(u, p, t)
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(M\)</span> is known as the <em>mass matrix</em>.  We can rewrite the Robertson equations as</p>
-<p>\begin{align}
-\frac{dy_1}{dt} &amp;= -0.04y_1 + 10^4 y_2 y_3 \
-\frac{dy_2}{dt} &amp;=  0.04y_1 - 10^4 y_2 y_3 - 3 * 10^7 y_2^2 \
+<p>$$
+M u’ = f(u, p, t)
+$$</p>
+<p>where $M$ is known as the <em>mass matrix</em>.  We can rewrite the Robertson equations as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-54005d76-f2f0-4a13-b60d-9e5c780e66d8">
+<span class="eqno">(4)<a class="headerlink" href="#equation-54005d76-f2f0-4a13-b60d-9e5c780e66d8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+\frac{dy_1}{dt} &amp;= -0.04y_1 + 10^4 y_2 y_3 \\
+\frac{dy_2}{dt} &amp;=  0.04y_1 - 10^4 y_2 y_3 - 3 * 10^7 y_2^2 \\
 1 &amp;= y_1 + y_2 + y_3
-\end{align}</p>
+\end{align}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">rober_dae!</span><span class="p">(</span><span class="n">du</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
@@ -716,11 +676,6 @@ M u' = f(u, p, t)
   <span class="n">du</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span>  <span class="n">y₁</span> <span class="o">+</span> <span class="n">y₂</span> <span class="o">+</span> <span class="n">y₃</span> <span class="o">-</span> <span class="mi">1</span>
   <span class="nb">nothing</span>
 <span class="k">end</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rober_dae! (generic function with 1 method)
 </pre></div>
 </div>
 </div>
@@ -741,23 +696,21 @@ M u' = f(u, p, t)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/DifferentialEquations.jl_30_0.svg" src="_images/DifferentialEquations.jl_30_0.svg" /></div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="implicitly-defined-odes-daes">
-<h1>Implicitly defined ODEs/DAEs<a class="headerlink" href="#implicitly-defined-odes-daes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="implicitly-defined-odes-daes">
+<h2>Implicitly defined ODEs/DAEs<a class="headerlink" href="#implicitly-defined-odes-daes" title="Permalink to this headline">¶</a></h2>
 <p>In this example we’ll write the Robertson equation in an implicit (also known as residual) form</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 f(du, u, p, t) = 0
-\]</div>
+$$</p>
 <p>Rewriting the Robertson equations in this form we have</p>
-<p>\begin{align}
-0  &amp;= -0.04y_1 + 10^4 y_2 y_3 - \frac{dy_1}{dt} \
-0  &amp;=  0.04y_1 - 10^4 y_2 y_3 - 3 * 10^7 y_2^2 - \frac{dy_2}{dt} \
+<div class="amsmath math notranslate nohighlight" id="equation-54a45739-2a10-42c7-94cd-167811621a20">
+<span class="eqno">(5)<a class="headerlink" href="#equation-54a45739-2a10-42c7-94cd-167811621a20" title="Permalink to this equation">¶</a></span>\[\begin{align}
+0  &amp;= -0.04y_1 + 10^4 y_2 y_3 - \frac{dy_1}{dt} \\
+0  &amp;=  0.04y_1 - 10^4 y_2 y_3 - 3 * 10^7 y_2^2 - \frac{dy_2}{dt} \\
 0 &amp;= y_1 + y_2 + y_3 - 1
-\end{align}</p>
+\end{align}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">rober_implicit_dae!</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">du</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
@@ -770,11 +723,6 @@ f(du, u, p, t) = 0
   <span class="n">out</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span>  <span class="n">y₁</span> <span class="o">+</span> <span class="n">y₂</span> <span class="o">+</span> <span class="n">y₃</span> <span class="o">-</span> <span class="mi">1</span>
   <span class="nb">nothing</span>  
 <span class="k">end</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rober_implicit_dae! (generic function with 1 method)
 </pre></div>
 </div>
 </div>
@@ -791,22 +739,18 @@ f(du, u, p, t) = 0
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/DifferentialEquations.jl_33_0.svg" src="_images/DifferentialEquations.jl_33_0.svg" /></div>
 </div>
 <div class="section" id="implicit-ode-dae-with-jacobian">
-<h2>Implicit ODE/DAE with Jacobian<a class="headerlink" href="#implicit-ode-dae-with-jacobian" title="Permalink to this headline">¶</a></h2>
+<h3>Implicit ODE/DAE with Jacobian<a class="headerlink" href="#implicit-ode-dae-with-jacobian" title="Permalink to this headline">¶</a></h3>
 <p>The Jacobian of an implicit ODE/DAE written in the form</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 f(d\mathbf{u}, d\mathbf{u}, p, t) = 0
-\]</div>
+$$</p>
 <p>is</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 J_{ij} = \gamma \frac{\partial f_i}{\partial(du)_j} + \frac{\partial f_i}{\partial u_j}
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\gamma\)</span> is supplied by the solver.</p>
+$$</p>
+<p>where $\gamma$ is supplied by the solver.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">rober_implicit_dae_jacobian!</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">du</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">gamma</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
@@ -828,11 +772,6 @@ J_{ij} = \gamma \frac{\partial f_i}{\partial(du)_j} + \frac{\partial f_i}{\parti
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rober_implicit_dae_jacobian! (generic function with 1 method)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -844,12 +783,10 @@ J_{ij} = \gamma \frac{\partial f_i}{\partial(du)_j} + \frac{\partial f_i}{\parti
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/DifferentialEquations.jl_36_0.svg" src="_images/DifferentialEquations.jl_36_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="automatic-differentiation-jacobian-staticarrays">
-<h2>Automatic differentiation Jacobian (StaticArrays)<a class="headerlink" href="#automatic-differentiation-jacobian-staticarrays" title="Permalink to this headline">¶</a></h2>
+<h3>Automatic differentiation Jacobian (StaticArrays)<a class="headerlink" href="#automatic-differentiation-jacobian-staticarrays" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">rober_implicit_dae</span><span class="p">(</span><span class="n">du</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
@@ -864,11 +801,6 @@ J_{ij} = \gamma \frac{\partial f_i}{\partial(du)_j} + \frac{\partial f_i}{\parti
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rober_implicit_dae (generic function with 1 method)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -880,11 +812,6 @@ J_{ij} = \gamma \frac{\partial f_i}{\partial(du)_j} + \frac{\partial f_i}{\parti
   <span class="n">J</span> <span class="o">.+=</span> <span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">rober_implicit_dae</span><span class="p">(</span><span class="n">du</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span> <span class="n">u</span><span class="p">)</span> 
   <span class="nb">nothing</span>
 <span class="k">end</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rober_implicit_dae_ad_jacobian! (generic function with 1 method)
 </pre></div>
 </div>
 </div>
@@ -905,8 +832,6 @@ J_{ij} = \gamma \frac{\partial f_i}{\partial(du)_j} + \frac{\partial f_i}{\parti
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/DifferentialEquations.jl_40_0.svg" src="_images/DifferentialEquations.jl_40_0.svg" /></div>
 </div>
 <p>Benchmarks</p>
 <div class="cell docutils container">
@@ -916,12 +841,6 @@ J_{ij} = \gamma \frac{\partial f_i}{\partial(du)_j} + \frac{\partial f_i}{\parti
 <span class="nd">@btime</span> <span class="n">solve</span><span class="p">(</span><span class="n">implicit_dae_prob_ad_jac_sa</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  331.667 μs (3023 allocations: 116.66 KiB)
-  307.957 μs (2746 allocations: 103.80 KiB)
-  281.629 μs (2742 allocations: 111.36 KiB)
-</pre></div>
 </div>
 </div>
 </div>
@@ -957,7 +876,7 @@ J_{ij} = \gamma \frac{\partial f_i}{\partial(du)_j} + \frac{\partial f_i}{\parti
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Recall the chain rule</p>
+            <p class="prev-next-title">Automatic Differentiation</p>
         </div>
     </a>
 </div>

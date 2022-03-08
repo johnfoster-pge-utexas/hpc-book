@@ -25,8 +25,8 @@ permeability = data[:, 6]
 porosity = data[:, 5];
 ------------------
 
-ArgumentError: Package CSV not found in current path:
-- Run `import Pkg; Pkg.add("CSV")` to install the CSV package.
+ArgumentError: Package Tables not found in current path:
+- Run `import Pkg; Pkg.add("Tables")` to install the Tables package.
 
 
 Stacktrace:
@@ -36,7 +36,7 @@ Stacktrace:
    @ ./boot.jl:373 [inlined]
  [3] include_string(mapexpr::typeof(REPL.softscope), mod::Module, code::String, filename::String)
    @ Base ./loading.jl:1196
-LoadError: ArgumentError: Package CSV not found in current path:
-- Run `import Pkg; Pkg.add("CSV")` to install the CSV package.
+LoadError: ArgumentError: Package Tables not found in current path:
+- Run `import Pkg; Pkg.add("Tables")` to install the Tables package.
 
 

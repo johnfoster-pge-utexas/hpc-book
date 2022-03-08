@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Conditional operators &#8212; An Introduction to High-Performance Computing</title>
+    <title>Conditionals and Flow Control &#8212; An Introduction to High-Performance Computing</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="For loops" href="JuliaLoops.html" />
+    <link rel="next" title="For and While Loops" href="JuliaLoops.html" />
     <link rel="prev" title="Common Data Structures" href="JuliaDataStructures.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -116,7 +116,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaFunctions.html">
-     Function definitions
+     Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -131,27 +131,27 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Conditional operators
+     Conditionals and Flow Control
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaLoops.html">
-     For loops
+     For and While Loops
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Plots.jl.html">
-     Install
+    <a class="reference internal" href="Plots_jl.html">
+     Plots.jl
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="AutomaticDifferentiation.html">
-     Recall the chain rule
+     Automatic Differentiation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="DifferentialEquations.jl.html">
-     Install
+    <a class="reference internal" href="DifferentialEquations_jl.html">
+     Differential Equations.jl
     </a>
    </li>
   </ul>
@@ -195,11 +195,14 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/JuliaConditionalsFlowControl.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="_sources/JuliaConditionalsFlowControl.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/JuliaConditionalsFlowControl.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -238,7 +241,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/JuliaConditionalsFlowControl.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/JuliaConditionalsFlowControl.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -260,17 +263,17 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-operators">
    Conditional operators
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#testing-subsets">
      Testing subsets
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#and-or-operations">
      <code class="docutils literal notranslate">
       <span class="pre">
@@ -288,7 +291,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#if-elseif-else-statements">
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -309,13 +312,13 @@ const thebe_selector_output = ".output, .cell_output"
    </code>
    statements
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#nesting">
      Nesting
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ternary-operator">
      Ternary operator
     </a>
@@ -332,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Conditional operators</h1>
+                <h1>Conditionals and Flow Control</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -342,17 +345,17 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-operators">
    Conditional operators
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#testing-subsets">
      Testing subsets
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#and-or-operations">
      <code class="docutils literal notranslate">
       <span class="pre">
@@ -370,7 +373,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#if-elseif-else-statements">
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -391,13 +394,13 @@ const thebe_selector_output = ".output, .cell_output"
    </code>
    statements
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#nesting">
      Nesting
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ternary-operator">
      Ternary operator
     </a>
@@ -413,9 +416,11 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <p><em>Conditional statements</em> are tests to return whether a given comparison between two variables is <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.  They are used in combination with <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements to control the flow of a program.  For example, we may want to check if the inputs to a particular function or program is within some valid range, or non-negative. In the event that it is a valid input, we proceed with the calculations. In the event that it is an invalid input, we terminate the program and prompt the user to input a parameter that is valid.</p>
-<div class="tex2jax_ignore mathjax_ignore section" id="conditional-operators">
-<h1>Conditional operators<a class="headerlink" href="#conditional-operators" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="conditionals-and-flow-control">
+<h1>Conditionals and Flow Control<a class="headerlink" href="#conditionals-and-flow-control" title="Permalink to this headline">¶</a></h1>
+<p><em>Conditional statements</em> are tests to return whether a given comparison between two variables is <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.  They are used in combination with <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements to control the flow of a program.  For example, we may want to check if the inputs to a particular function or program is within some valid range, or non-negative. In the event that it is a valid input, we proceed with the calculations. In the event that it is an invalid input, we terminate the program and prompt the user to input a parameter that is valid.</p>
+<div class="section" id="conditional-operators">
+<h2>Conditional operators<a class="headerlink" href="#conditional-operators" title="Permalink to this headline">¶</a></h2>
 <p>The conditional operators in Julia consist of the following:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">==</span></code> for testing if two data types are <strong>equal</strong> to each other</p></li>
@@ -462,7 +467,7 @@ true
 </div>
 </div>
 <div class="section" id="testing-subsets">
-<h2>Testing subsets<a class="headerlink" href="#testing-subsets" title="Permalink to this headline">¶</a></h2>
+<h3>Testing subsets<a class="headerlink" href="#testing-subsets" title="Permalink to this headline">¶</a></h3>
 <p>You can also test if one element is a subset of another, e.g.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -529,7 +534,7 @@ true
 </div>
 </div>
 <div class="section" id="and-or-operations">
-<h2><code class="docutils literal notranslate"><span class="pre">and</span></code> / <code class="docutils literal notranslate"><span class="pre">or</span></code> operations<a class="headerlink" href="#and-or-operations" title="Permalink to this headline">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">and</span></code> / <code class="docutils literal notranslate"><span class="pre">or</span></code> operations<a class="headerlink" href="#and-or-operations" title="Permalink to this headline">¶</a></h3>
 <p>We can combine multiple conditional statements using the <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">||</span></code> operators.  For example,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -567,8 +572,8 @@ true
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="if-elseif-else-statements">
-<h1><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elseif</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> statements<a class="headerlink" href="#if-elseif-else-statements" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="if-elseif-else-statements">
+<h2><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elseif</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> statements<a class="headerlink" href="#if-elseif-else-statements" title="Permalink to this headline">¶</a></h2>
 <p>We control the flow of a program with <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements.  <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements use conditionals as a test and then execute code in the <em>body</em> of the <code class="docutils literal notranslate"><span class="pre">if</span></code>-statement when the test is <code class="docutils literal notranslate"><span class="pre">true</span></code>.  Below we define a function that takes a number <code class="docutils literal notranslate"><span class="pre">x</span></code> as an argument and prints <code class="docutils literal notranslate"><span class="pre">&quot;x</span> <span class="pre">is</span> <span class="pre">positive&quot;</span></code> if (and only if) the input value for <code class="docutils literal notranslate"><span class="pre">x</span></code> is greater than 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -682,7 +687,7 @@ x is negative
 </div>
 </div>
 <div class="section" id="nesting">
-<h2>Nesting<a class="headerlink" href="#nesting" title="Permalink to this headline">¶</a></h2>
+<h3>Nesting<a class="headerlink" href="#nesting" title="Permalink to this headline">¶</a></h3>
 <p>You can also nest <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements inside each other. There is no limit to how many times this can be done.  An example is below.  This function takes two arguments <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">truncate_value</span></code>.  If <code class="docutils literal notranslate"><span class="pre">x</span></code> is less than<code class="docutils literal notranslate"><span class="pre">truncate_value</span></code> it returns <code class="docutils literal notranslate"><span class="pre">truncate_value</span></code>, otherwise is returns <code class="docutils literal notranslate"><span class="pre">x</span></code>.  It also allows <code class="docutils literal notranslate"><span class="pre">truncate_value</span></code> to be defined as <code class="docutils literal notranslate"><span class="pre">nothing</span></code> in which case it returns <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -770,7 +775,7 @@ truncate(5, nothing) = 5
 <p>The first function <code class="docutils literal notranslate"><span class="pre">_truncate</span></code> performs the truncation operation, but would error if <code class="docutils literal notranslate"><span class="pre">truncate_value</span> <span class="pre">=</span> <span class="pre">nothing</span></code>.  The second function checks to ensure that <code class="docutils literal notranslate"><span class="pre">truncate_value</span> <span class="pre">!=</span> <span class="pre">nothing</span></code> and if this is <code class="docutils literal notranslate"><span class="pre">true</span></code>, then it calls the first function.</p>
 </div>
 <div class="section" id="ternary-operator">
-<h2>Ternary operator<a class="headerlink" href="#ternary-operator" title="Permalink to this headline">¶</a></h2>
+<h3>Ternary operator<a class="headerlink" href="#ternary-operator" title="Permalink to this headline">¶</a></h3>
 <p>The ternary operator is a shorthand single line <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> statement that has the form</p>
 <p><code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">?</span> <span class="pre">do</span> <span class="pre">if</span> <span class="pre">test</span> <span class="pre">is</span> <span class="pre">true</span> <span class="pre">:</span> <span class="pre">do</span> <span class="pre">if</span> <span class="pre">test</span> <span class="pre">is</span> <span class="pre">false</span></code></p>
 <div class="cell docutils container">
@@ -796,6 +801,7 @@ truncate(5, nothing) = 5
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ternary_truncate(-4, 0) = 0
 ternary_truncate(5, 0) = 5
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -837,7 +843,7 @@ ternary_truncate(5, 0) = 5
     <a class='right-next' id="next-link" href="JuliaLoops.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">For loops</p>
+        <p class="prev-next-title">For and While Loops</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

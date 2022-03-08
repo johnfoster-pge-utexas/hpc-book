@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Common Data Structures" href="JuliaDataStructures.html" />
-    <link rel="prev" title="Function definitions" href="JuliaFunctions.html" />
+    <link rel="prev" title="Functions" href="JuliaFunctions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -116,7 +116,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaFunctions.html">
-     Function definitions
+     Functions
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -131,27 +131,27 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaConditionalsFlowControl.html">
-     Conditional operators
+     Conditionals and Flow Control
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaLoops.html">
-     For loops
+     For and While Loops
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Plots.jl.html">
-     Install
+    <a class="reference internal" href="Plots_jl.html">
+     Plots.jl
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="AutomaticDifferentiation.html">
-     Recall the chain rule
+     Automatic Differentiation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="DifferentialEquations.jl.html">
-     Install
+    <a class="reference internal" href="DifferentialEquations_jl.html">
+     Differential Equations.jl
     </a>
    </li>
   </ul>
@@ -195,11 +195,14 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/JuliaTypes.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="_sources/JuliaTypes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/JuliaTypes.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -238,7 +241,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/JuliaTypes.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/JuliaTypes.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -260,59 +263,54 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Types and type declarations
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#type-trees">
    Type trees
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#types-in-function-arguments">
    Types in function arguments
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#type-unions">
    Type Unions
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#composite-types">
    Composite Types
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#parametric-composite-types">
      Parametric Composite Types
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#type-restrictions-on-parameters">
      Type restrictions on parameters
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#functions-and-operators-with-parametric-types">
      Functions and operators with parametric types
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mutable-composite-types">
    Mutable composite types
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#operations-on-types">
    Operations on types
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#constructors">
    Constructors
   </a>
@@ -337,59 +335,54 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Types and type declarations
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#type-trees">
    Type trees
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#types-in-function-arguments">
    Types in function arguments
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#type-unions">
    Type Unions
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#composite-types">
    Composite Types
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#parametric-composite-types">
      Parametric Composite Types
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#type-restrictions-on-parameters">
      Type restrictions on parameters
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#functions-and-operators-with-parametric-types">
      Functions and operators with parametric types
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mutable-composite-types">
    Mutable composite types
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#operations-on-types">
    Operations on types
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#constructors">
    Constructors
   </a>
@@ -436,91 +429,18 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="type-trees">
-<h1>Type trees<a class="headerlink" href="#type-trees" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="type-trees">
+<h2>Type trees<a class="headerlink" href="#type-trees" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">print_tree</span><span class="p">(</span><span class="kt">AbstractArray</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AbstractArray
-├─ AbstractRange
-│  ├─ LinRange
-│  ├─ OrdinalRange
-│  │  ├─ AbstractUnitRange
-│  │  │  ├─ IdentityUnitRange
-│  │  │  ├─ OneTo
-│  │  │  ├─ Slice
-│  │  │  └─ UnitRange
-│  │  └─ StepRange
-│  └─ StepRangeLen
-├─ LogicalIndex
-├─ ReinterpretArray
-├─ ReshapedArray
-├─ SCartesianIndices2
-├─ BitArray
-├─ CartesianIndices
-├─ AbstractRange
-│  ├─ LinRange
-│  ├─ OrdinalRange
-│  │  ├─ AbstractUnitRange
-│  │  │  ├─ IdentityUnitRange
-│  │  │  ├─ OneTo
-│  │  │  ├─ Slice
-│  │  │  ├─ StmtRange
-│  │  │  └─ UnitRange
-│  │  └─ StepRange
-│  └─ StepRangeLen
-├─ BitArray
-├─ LinearIndices
-├─ DenseArray
-│  ├─ Array
-│  ├─ CodeUnits
-│  ├─ Const
-│  ├─ UnsafeView
-│  ├─ SharedArray
-│  └─ Dense
-├─ AbstractQ
-│  ├─ HessenbergQ
-│  ├─ QRCompactWYQ
-│  ├─ QRPackedQ
-│  └─ QRSparseQ
-├─ AbstractTriangular
-│  ├─ LowerTriangular
-│  ├─ UnitLowerTriangular
-│  ├─ UnitUpperTriangular
-│  └─ UpperTriangular
-├─ Adjoint
-├─ Bidiagonal
-├─ Diagonal
-├─ Hermitian
-├─ LQPackedQ
-├─ SymTridiagonal
-├─ Symmetric
-├─ Transpose
-├─ Tridiagonal
-├─ UpperHessenberg
-├─ LinearIndices
-├─ PermutedDimsArray
-├─ AbstractSparseArray
-│  ├─ AbstractSparseMatrixCSC
-│  │  └─ SparseMatrixCSC
-│  ├─ SparseVector
-│  └─ Sparse
-├─ SubArray
-├─ FactorComponent
-├─ GenericArray
-└─ Message
-</pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="types-in-function-arguments">
-<h1>Types in function arguments<a class="headerlink" href="#types-in-function-arguments" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="types-in-function-arguments">
+<h2>Types in function arguments<a class="headerlink" href="#types-in-function-arguments" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -533,14 +453,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 6
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -550,28 +462,12 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 6.0
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Float64
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span><span class="p">)</span>
 <span class="nd">@show</span> <span class="n">x</span>
 <span class="n">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = &quot;foobar&quot;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>String
 </pre></div>
 </div>
 </div>
@@ -588,14 +484,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 6
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -603,23 +491,10 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">MethodError</span>: no method matching f(::String, ::String)
-
-<span class="ne">Stacktrace</span>:
- <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
-   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span><span class="mi">1</span>
- <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="nb">eval</span>
-   <span class="o">@</span> <span class="o">./</span><span class="n">boot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">360</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">include_string</span><span class="p">(</span><span class="n">mapexpr</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">REPL</span><span class="o">.</span><span class="n">softscope</span><span class="p">),</span> <span class="n">mod</span><span class="p">::</span><span class="n">Module</span><span class="p">,</span> <span class="n">code</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">filename</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
-   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">loading</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">1116</span>
-</pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="type-unions">
-<h1>Type Unions<a class="headerlink" href="#type-unions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="type-unions">
+<h2>Type Unions<a class="headerlink" href="#type-unions" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">h</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Integer</span><span class="p">,</span> <span class="kt">String</span><span class="p">},</span> <span class="n">y</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Integer</span><span class="p">,</span> <span class="kt">String</span><span class="p">})</span>
@@ -631,12 +506,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>h(1, 2) = 2
-h(&quot;foo&quot;, &quot;bar&quot;) = &quot;foobar&quot;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -644,23 +513,10 @@ h(&quot;foo&quot;, &quot;bar&quot;) = &quot;foobar&quot;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">MethodError</span>: no method matching h(::Float64, ::Float64)
-
-<span class="ne">Stacktrace</span>:
- <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
-   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">]:</span><span class="mi">1</span>
- <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="nb">eval</span>
-   <span class="o">@</span> <span class="o">./</span><span class="n">boot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">360</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">include_string</span><span class="p">(</span><span class="n">mapexpr</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">REPL</span><span class="o">.</span><span class="n">softscope</span><span class="p">),</span> <span class="n">mod</span><span class="p">::</span><span class="n">Module</span><span class="p">,</span> <span class="n">code</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">filename</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
-   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">loading</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">1116</span>
-</pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="composite-types">
-<h1>Composite Types<a class="headerlink" href="#composite-types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="composite-types">
+<h2>Composite Types<a class="headerlink" href="#composite-types" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="kt">Point2D</span>
@@ -674,15 +530,9 @@ h(&quot;foo&quot;, &quot;bar&quot;) = &quot;foobar&quot;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p.x = 1.0
-p.y = 2.0
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="parametric-composite-types">
-<h2>Parametric Composite Types<a class="headerlink" href="#parametric-composite-types" title="Permalink to this headline">¶</a></h2>
+<h3>Parametric Composite Types<a class="headerlink" href="#parametric-composite-types" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="kt">Point3D</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
@@ -697,24 +547,11 @@ p.y = 2.0
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p.x = 1
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int8
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="kt">Point3D</span><span class="p">{</span><span class="kt">Float32</span><span class="p">}(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
 <span class="n">typeof</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Float32
 </pre></div>
 </div>
 </div>
@@ -726,15 +563,10 @@ p.y = 2.0
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>String
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="type-restrictions-on-parameters">
-<h2>Type restrictions on parameters<a class="headerlink" href="#type-restrictions-on-parameters" title="Permalink to this headline">¶</a></h2>
+<h3>Type restrictions on parameters<a class="headerlink" href="#type-restrictions-on-parameters" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="kt">NumericPoint2D</span><span class="p">{</span><span class="kt">T</span><span class="o">&lt;:</span><span class="kt">Real</span><span class="p">}</span>
@@ -750,32 +582,10 @@ p.y = 2.0
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>typeof(p.x) = Float64
-typeof(q.x) = Int8
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int8
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="kt">NumericPoint2D</span><span class="p">{</span><span class="kt">String</span><span class="p">}(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">TypeError</span>: in NumericPoint2D, in T, expected T&lt;:Real, got Type{String}
-
-<span class="ne">Stacktrace</span>:
- <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
-   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">]:</span><span class="mi">1</span>
- <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="nb">eval</span>
-   <span class="o">@</span> <span class="o">./</span><span class="n">boot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">360</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">include_string</span><span class="p">(</span><span class="n">mapexpr</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">REPL</span><span class="o">.</span><span class="n">softscope</span><span class="p">),</span> <span class="n">mod</span><span class="p">::</span><span class="n">Module</span><span class="p">,</span> <span class="n">code</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">filename</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
-   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">loading</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">1116</span>
 </pre></div>
 </div>
 </div>
@@ -789,15 +599,10 @@ typeof(q.x) = Int8
 </div>
 </div>
 <div class="section" id="functions-and-operators-with-parametric-types">
-<h2>Functions and operators with parametric types<a class="headerlink" href="#functions-and-operators-with-parametric-types" title="Permalink to this headline">¶</a></h2>
+<h3>Functions and operators with parametric types<a class="headerlink" href="#functions-and-operators-with-parametric-types" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="kt">NumericPoint2D</span><span class="p">{</span><span class="kt">T</span><span class="p">},</span> <span class="n">B</span><span class="o">::</span><span class="kt">NumericPoint2D</span><span class="p">{</span><span class="kt">T</span><span class="p">})</span> <span class="k">where</span> <span class="kt">T</span> <span class="o">=</span> <span class="kt">NumericPoint2D</span><span class="p">{</span><span class="kt">T</span><span class="p">}(</span><span class="n">A</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">B</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">B</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+ (generic function with 191 methods)
 </pre></div>
 </div>
 </div>
@@ -811,11 +616,6 @@ typeof(q.x) = Int8
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NumericPoint2D{Int32}(2, 4)
-</pre></div>
-</div>
-</div>
 </div>
 <p><strong>Fields of composite types are immutable by default</strong></p>
 <div class="cell docutils container">
@@ -824,26 +624,11 @@ typeof(q.x) = Int8
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">setfield</span><span class="o">!</span> immutable struct of <span class="nb">type</span> NumericPoint2D cannot be changed
-
-<span class="ne">Stacktrace</span>:
- <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">setproperty</span><span class="o">!(</span>x::NumericPoint2D<span class="o">{</span>Int32<span class="o">}</span>, f::Symbol, v::Int64<span class="o">)</span>
-   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">Base</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">34</span>
- <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
-   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span><span class="mi">1</span>
- <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="nb">eval</span>
-   <span class="o">@</span> <span class="o">./</span><span class="n">boot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">360</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">include_string</span><span class="p">(</span><span class="n">mapexpr</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">REPL</span><span class="o">.</span><span class="n">softscope</span><span class="p">),</span> <span class="n">mod</span><span class="p">::</span><span class="n">Module</span><span class="p">,</span> <span class="n">code</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">filename</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
-   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">loading</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">1116</span>
-</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="mutable-composite-types">
-<h1>Mutable composite types<a class="headerlink" href="#mutable-composite-types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mutable-composite-types">
+<h2>Mutable composite types<a class="headerlink" href="#mutable-composite-types" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">mutable struct</span> <span class="kt">MutablePoint2D</span><span class="p">{</span><span class="kt">T</span><span class="o">&lt;:</span><span class="kt">Real</span><span class="p">}</span>
@@ -857,23 +642,13 @@ typeof(q.x) = Int8
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A.x = 2
-</pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="operations-on-types">
-<h1>Operations on types<a class="headerlink" href="#operations-on-types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="operations-on-types">
+<h2>Operations on types<a class="headerlink" href="#operations-on-types" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">isa</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>true
 </pre></div>
 </div>
 </div>
@@ -884,11 +659,6 @@ typeof(q.x) = Int8
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -896,15 +666,10 @@ typeof(q.x) = Int8
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unsigned
-</pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="constructors">
-<h1>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="kt">Polar</span><span class="p">{</span><span class="kt">T</span><span class="o">&lt;:</span><span class="kt">Real</span><span class="p">}</span>
@@ -914,11 +679,6 @@ typeof(q.x) = Int8
 
 <span class="n">A</span> <span class="o">=</span> <span class="n">Polar</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">π</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">A</span><span class="o">.</span><span class="n">θ</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7853981633974483
 </pre></div>
 </div>
 </div>
@@ -933,11 +693,6 @@ typeof(q.x) = Int8
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polar
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -948,14 +703,6 @@ typeof(q.x) = Int8
 <span class="n">typeof</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">r</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B.r = 0.99999994f0
-B.θ = 0.7853982f0
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Float32
-</pre></div>
 </div>
 </div>
 </div>
@@ -990,7 +737,7 @@ B.θ = 0.7853982f0
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Function definitions</p>
+            <p class="prev-next-title">Functions</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="JuliaDataStructures.html" title="next page">

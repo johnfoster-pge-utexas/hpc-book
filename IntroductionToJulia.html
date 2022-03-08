@@ -51,11 +51,9 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Function definitions" href="JuliaFunctions.html" />
+    <link rel="next" title="Functions" href="JuliaFunctions.html" />
     <link rel="prev" title="Introduction to Julia" href="JuliaChapterIntro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -118,7 +116,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaFunctions.html">
-     Function definitions
+     Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -133,27 +131,27 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaConditionalsFlowControl.html">
-     Conditional operators
+     Conditionals and Flow Control
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaLoops.html">
-     For loops
+     For and While Loops
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Plots.jl.html">
-     Install
+    <a class="reference internal" href="Plots_jl.html">
+     Plots.jl
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="AutomaticDifferentiation.html">
-     Recall the chain rule
+     Automatic Differentiation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="DifferentialEquations.jl.html">
-     Install
+    <a class="reference internal" href="DifferentialEquations_jl.html">
+     Differential Equations.jl
     </a>
    </li>
   </ul>
@@ -197,11 +195,14 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/IntroductionToJulia.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="_sources/IntroductionToJulia.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/IntroductionToJulia.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -240,7 +241,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/IntroductionToJulia.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/IntroductionToJulia.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -345,7 +346,8 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <img src='images/julia-logo.svg' width=300><div class="tex2jax_ignore mathjax_ignore section" id="why-julia">
+  <a class="reference internal image-reference" href="images/julia-logo.png"><img alt="julia-logo" class="align-center" src="images/julia-logo.png" style="width: 300px;" /></a>
+<div class="tex2jax_ignore mathjax_ignore section" id="why-julia">
 <h1>Why Julia?<a class="headerlink" href="#why-julia" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Fast</p></li>
@@ -359,7 +361,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="how-fast">
 <h1>How fast?<a class="headerlink" href="#how-fast" title="Permalink to this headline">¶</a></h1>
-<img src='images/benchmarks.svg' width=600></div>
+<a class="reference internal image-reference" href="_images/benchmarks.png"><img alt="benchmarks" class="align-center" src="_images/benchmarks.png" style="width: 600px;" /></a>
+</div>
 <div class="tex2jax_ignore mathjax_ignore section" id="multiple-dispatch">
 <h1>Multiple Dispatch<a class="headerlink" href="#multiple-dispatch" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
@@ -417,20 +420,10 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>my_add (generic function with 3 methods)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">my_add</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span> <span class="s">&quot;World!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Hello World!&quot;
 </pre></div>
 </div>
 </div>
@@ -442,20 +435,10 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+ (generic function with 191 methods)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="s">&quot;World!&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Hello World!&quot;
 </pre></div>
 </div>
 </div>
@@ -472,22 +455,12 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>my_add (generic function with 4 methods)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
 <span class="n">my_add</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Point(2.0, 4.0)
 </pre></div>
 </div>
 </div>
@@ -506,17 +479,12 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[51.0 \pm 0.17\]</div>
-</div>
 </div>
 <div class="section" id="simple-pendulum">
 <h2>Simple pendulum<a class="headerlink" href="#simple-pendulum" title="Permalink to this headline">¶</a></h2>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 \ddot{\theta} = \frac{g}{L} \theta
-\]</div>
+$$</p>
 <p><a class="reference external" href="https://tutorials.sciml.ai/html/type_handling/02-uncertainties.html">Example Source</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -545,41 +513,10 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">u</span> <span class="o">=</span> <span class="n">u₀</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">.*</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">g</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span> <span class="o">.*</span> <span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
 
 <span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">getindex</span><span class="o">.</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">u</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&quot;Numerical&quot;</span><span class="p">)</span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&quot;Analytic&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4000</span><span class="o">*</span><span class="mf">0.75</span><span class="p">,</span> <span class="mi">3000</span><span class="o">*</span><span class="mf">0.75</span><span class="p">))</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&quot;Analytic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/IntroductionToJulia_18_0.svg" src="_images/IntroductionToJulia_18_0.svg" /></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">macro</span> <span class="n">javascript_str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">display</span><span class="p">(</span><span class="s">&quot;text/javascript&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span> <span class="k">end</span>
-<span class="sa">javascript</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">function hideElements(elements, start) {</span>
-<span class="s">for(var i = 0, length = elements.length; i &lt; length;i++) {</span>
-<span class="s">    if(i &gt;= start) {</span>
-<span class="s">        elements[i].style.display = &quot;none&quot;;</span>
-<span class="s">    }</span>
-<span class="s">}</span>
-<span class="s">}</span>
-<span class="s">var prompt_elements = document.getElementsByClassName(&quot;prompt&quot;);</span>
-<span class="s">hideElements(prompt_elements, 0)</span>
-<span class="s">&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/javascript">function hideElements(elements, start) {
-for(var i = 0, length = elements.length; i < length;i++) {
-    if(i >= start) {
-        elements[i].style.display = "none";
-    }
-}
-}
-var prompt_elements = document.getElementsByClassName("prompt");
-hideElements(prompt_elements, 0)
-</script></div>
 </div>
 </div>
 </div>
@@ -619,7 +556,7 @@ hideElements(prompt_elements, 0)
     <a class='right-next' id="next-link" href="JuliaFunctions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Function definitions</p>
+        <p class="prev-next-title">Functions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

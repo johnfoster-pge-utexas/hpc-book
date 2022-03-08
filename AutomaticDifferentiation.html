@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recall the chain rule &#8212; An Introduction to High-Performance Computing</title>
+    <title>Automatic Differentiation &#8212; An Introduction to High-Performance Computing</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Install" href="DifferentialEquations.jl.html" />
-    <link rel="prev" title="Install" href="Plots.jl.html" />
+    <link rel="next" title="Differential Equations.jl" href="DifferentialEquations_jl.html" />
+    <link rel="prev" title="Plots.jl" href="Plots_jl.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -118,7 +118,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaFunctions.html">
-     Function definitions
+     Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -133,27 +133,27 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaConditionalsFlowControl.html">
-     Conditional operators
+     Conditionals and Flow Control
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaLoops.html">
-     For loops
+     For and While Loops
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Plots.jl.html">
-     Install
+    <a class="reference internal" href="Plots_jl.html">
+     Plots.jl
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Recall the chain rule
+     Automatic Differentiation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="DifferentialEquations.jl.html">
-     Install
+    <a class="reference internal" href="DifferentialEquations_jl.html">
+     Differential Equations.jl
     </a>
    </li>
   </ul>
@@ -197,11 +197,14 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/AutomaticDifferentiation.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="_sources/AutomaticDifferentiation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/AutomaticDifferentiation.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -240,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/AutomaticDifferentiation.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/AutomaticDifferentiation.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -262,37 +265,37 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recall-the-chain-rule">
    Recall the chain rule
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#forward-vs-reverse-mode-ad">
    Forward vs. Reverse Mode AD
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#forwarddiff-jl">
    ForwardDiff.jl
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#in-place-functions">
    In place functions
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gradients">
      Gradients
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jacobian">
      Jacobian
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#other-ad-packages-in-julia">
      Other AD packages in Julia
     </a>
@@ -309,7 +312,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Recall the chain rule</h1>
+                <h1>Automatic Differentiation</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -319,37 +322,37 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recall-the-chain-rule">
    Recall the chain rule
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#forward-vs-reverse-mode-ad">
    Forward vs. Reverse Mode AD
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#forwarddiff-jl">
    ForwardDiff.jl
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#in-place-functions">
    In place functions
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gradients">
      Gradients
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jacobian">
      Jacobian
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#other-ad-packages-in-julia">
      Other AD packages in Julia
     </a>
@@ -365,34 +368,34 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="recall-the-chain-rule">
-<h1>Recall the chain rule<a class="headerlink" href="#recall-the-chain-rule" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="automatic-differentiation">
+<h1>Automatic Differentiation<a class="headerlink" href="#automatic-differentiation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="recall-the-chain-rule">
+<h2>Recall the chain rule<a class="headerlink" href="#recall-the-chain-rule" title="Permalink to this headline">¶</a></h2>
 <p>Any computer program can be thought of as a composition of functions, i.e.</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 output = f(g(h(input))) = f(g(h(w_0)) = f(g(w_1)) = f(w_2) = w_3
-\]</div>
+$$</p>
 <p>where</p>
-<p>\begin{align}
-w_0 &amp;= input \
-w_1 &amp;= h(w_0) \
-w_2 &amp;= g(w_1) \
+<div class="amsmath math notranslate nohighlight" id="equation-bce8e082-0add-4826-9d5a-ac2eb97ca2ac">
+<span class="eqno">(1)<a class="headerlink" href="#equation-bce8e082-0add-4826-9d5a-ac2eb97ca2ac" title="Permalink to this equation">¶</a></span>\[\begin{align}
+w_0 &amp;= input \\
+w_1 &amp;= h(w_0) \\
+w_2 &amp;= g(w_1) \\
 w_3 &amp;= f(w_2) = output
-\end{align}</p>
+\end{align}\]</div>
 <p>If we want to compute</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 \frac{d}{d(input)}(output)
-\]</div>
+$$</p>
 <p>we can use the chain rule, i.e.</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 \frac{d}{d(input)}(output) = \frac{d(output)}{dw_2}\frac{dw_2}{dw_1}\frac{dw_1}{d(input)}
-\]</div>
+$$</p>
 <p>The computer can do this for us!  See <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_differentiation">here</a> for more details.</p>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="forward-vs-reverse-mode-ad">
-<h1>Forward vs. Reverse Mode AD<a class="headerlink" href="#forward-vs-reverse-mode-ad" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="forward-vs-reverse-mode-ad">
+<h2>Forward vs. Reverse Mode AD<a class="headerlink" href="#forward-vs-reverse-mode-ad" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Forward AD</strong> traverses the chain rule from inside to outside</p>
 <ul>
@@ -409,14 +412,13 @@ w_3 &amp;= f(w_2) = output
 </li>
 </ul>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="forwarddiff-jl">
-<h1>ForwardDiff.jl<a class="headerlink" href="#forwarddiff-jl" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="forwarddiff-jl">
+<h2>ForwardDiff.jl<a class="headerlink" href="#forwarddiff-jl" title="Permalink to this headline">¶</a></h2>
 <p>Forward mode AD in Julia</p>
-<p>Let’s start with the example <span class="math notranslate nohighlight">\(f(x) = 3 x^2\)</span> which of course has the analytic derivative</p>
-<div class="math notranslate nohighlight">
-\[
-f'(x) = 6 x
-\]</div>
+<p>Let’s start with the example $f(x) = 3 x^2$ which of course has the analytic derivative</p>
+<p>$$
+f’(x) = 6 x
+$$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">ForwardDiff</span>
@@ -434,8 +436,8 @@ f'(x) = 6 x
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="in-place-functions">
-<h1>In place functions<a class="headerlink" href="#in-place-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="in-place-functions">
+<h2>In place functions<a class="headerlink" href="#in-place-functions" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">f!</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -487,12 +489,11 @@ f'(x) = 6 x
 </div>
 </div>
 <div class="section" id="gradients">
-<h2>Gradients<a class="headerlink" href="#gradients" title="Permalink to this headline">¶</a></h2>
+<h3>Gradients<a class="headerlink" href="#gradients" title="Permalink to this headline">¶</a></h3>
 <p>Recall the gradient of a scalar function is</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 \nabla f(x_1, x_2) = \left[ \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}\right]
-\]</div>
+$$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="mi">4</span>
@@ -550,16 +551,16 @@ f'(x) = 6 x
 </div>
 </div>
 <div class="section" id="jacobian">
-<h2>Jacobian<a class="headerlink" href="#jacobian" title="Permalink to this headline">¶</a></h2>
+<h3>Jacobian<a class="headerlink" href="#jacobian" title="Permalink to this headline">¶</a></h3>
 <p>Recall the Jacobian of a vector function is</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\nabla \vec{f}(x_1, x_2) = 
-\begin{bmatrix}
+<p>$$
+\nabla \vec{f}(x_1, x_2) =</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8c1d08d5-18c5-4b16-96ab-468e9256fa01">
+<span class="eqno">(2)<a class="headerlink" href="#equation-8c1d08d5-18c5-4b16-96ab-468e9256fa01" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
 \frac{\partial f_1}{\partial x_1} &amp; \frac{\partial f_1}{\partial x_2} \\
 \frac{\partial f_2}{\partial x_1} &amp; \frac{\partial f_2}{\partial x_2}
-\end{bmatrix}
-\end{split}\]</div>
+\end{bmatrix}\]</div>
+<p>$$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -594,11 +595,12 @@ f'(x) = 6 x
 </div>
 </div>
 <div class="section" id="other-ad-packages-in-julia">
-<h2>Other AD packages in Julia<a class="headerlink" href="#other-ad-packages-in-julia" title="Permalink to this headline">¶</a></h2>
+<h3>Other AD packages in Julia<a class="headerlink" href="#other-ad-packages-in-julia" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://fluxml.ai/Zygote.jl/latest/">Zygote.jl</a> - Reverse Mode AD, source-to-source</p></li>
 <li><p><a class="reference external" href="https://github.com/JuliaDiff/Diffractor.jl">Diffractor.jl</a> - Next generation AD package w/ API similar to Zygote</p></li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -627,17 +629,17 @@ f'(x) = 6 x
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Plots.jl.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Plots_jl.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Install</p>
+            <p class="prev-next-title">Plots.jl</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="DifferentialEquations.jl.html" title="next page">
+    <a class='right-next' id="next-link" href="DifferentialEquations_jl.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Install</p>
+        <p class="prev-next-title">Differential Equations.jl</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

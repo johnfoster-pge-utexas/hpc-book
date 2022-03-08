@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>For loops &#8212; An Introduction to High-Performance Computing</title>
+    <title>For and While Loops &#8212; An Introduction to High-Performance Computing</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Install" href="Plots.jl.html" />
-    <link rel="prev" title="Conditional operators" href="JuliaConditionalsFlowControl.html" />
+    <link rel="next" title="Plots.jl" href="Plots_jl.html" />
+    <link rel="prev" title="Conditionals and Flow Control" href="JuliaConditionalsFlowControl.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -116,7 +116,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaFunctions.html">
-     Function definitions
+     Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -131,27 +131,27 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="JuliaConditionalsFlowControl.html">
-     Conditional operators
+     Conditionals and Flow Control
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     For loops
+     For and While Loops
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Plots.jl.html">
-     Install
+    <a class="reference internal" href="Plots_jl.html">
+     Plots.jl
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="AutomaticDifferentiation.html">
-     Recall the chain rule
+     Automatic Differentiation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="DifferentialEquations.jl.html">
-     Install
+    <a class="reference internal" href="DifferentialEquations_jl.html">
+     Differential Equations.jl
     </a>
    </li>
   </ul>
@@ -195,11 +195,14 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/JuliaLoops.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="_sources/JuliaLoops.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/JuliaLoops.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -238,7 +241,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/JuliaLoops.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/JuliaLoops.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -260,22 +263,22 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops">
    For loops
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#list-comprehensions">
    List comprehensions
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#enumerate">
    Enumerate
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#while-loops">
    While loops
   </a>
@@ -290,7 +293,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>For loops</h1>
+                <h1>For and While Loops</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -300,22 +303,22 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops">
    For loops
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#list-comprehensions">
    List comprehensions
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#enumerate">
    Enumerate
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#while-loops">
    While loops
   </a>
@@ -329,9 +332,11 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <p>Looping structures, i.e. <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, are another method of flow control in Julia programming.  They can be used to perform structured and/or repeated tasks that occur numerous times in a compact way.</p>
-<div class="tex2jax_ignore mathjax_ignore section" id="for-loops">
-<h1>For loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="for-and-while-loops">
+<h1>For and While Loops<a class="headerlink" href="#for-and-while-loops" title="Permalink to this headline">¶</a></h1>
+<p>Looping structures, i.e. <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, are another method of flow control in Julia programming.  They can be used to perform structured and/or repeated tasks that occur numerous times in a compact way.</p>
+<div class="section" id="for-loops">
+<h2>For loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h2>
 <p>For loops are a looping structure that allows for iteration over a fixed number of items.  The items can simply be monotonically increasing integers, in which case the loop simply cycles a fixed number of times.  Additionally, the items can by items from a Julia <code class="docutils literal notranslate"><span class="pre">Array</span></code>, <code class="docutils literal notranslate"><span class="pre">Tuple</span></code>, or <code class="docutils literal notranslate"><span class="pre">Dict</span></code> or other iterable types</p>
 <p>For demonstration purposes, let’s start with a Julia <code class="docutils literal notranslate"><span class="pre">Array</span></code> of type <code class="docutils literal notranslate"><span class="pre">Any</span></code>.</p>
 <div class="cell docutils container">
@@ -477,8 +482,8 @@ Any[0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="list-comprehensions">
-<h1>List comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="list-comprehensions">
+<h2>List comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">¶</a></h2>
 <p>There is another type of for loop structure that can be used in Julia when it is desired to store the output of computations from a loop in a <code class="docutils literal notranslate"><span class="pre">Array</span></code>.  These are called <em>comprehensions</em>.  An example of a list comprehension that produces the same result as the for loop above is</p>
 <p>In a list comprehension, the body of the loop goes before the <code class="docutils literal notranslate"><span class="pre">for</span></code> keyword.</p>
 <div class="cell docutils container">
@@ -495,8 +500,8 @@ Any[0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="enumerate">
-<h1>Enumerate<a class="headerlink" href="#enumerate" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="enumerate">
+<h2>Enumerate<a class="headerlink" href="#enumerate" title="Permalink to this headline">¶</a></h2>
 <p>Occasionally, in addition to iterating over the actual items in a <code class="docutils literal notranslate"><span class="pre">Array</span></code>/<code class="docutils literal notranslate"><span class="pre">Tuple</span></code>, the integer index corresponding to the location in the data structure is also desired.  This can be returned with the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function.  For example,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -518,8 +523,8 @@ strings -- has the index 4
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="while-loops">
-<h1>While loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="while-loops">
+<h2>While loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h2>
 <p>While loops continuously execute the body of the loop so long as some conditional statement is evaluating to <code class="docutils literal notranslate"><span class="pre">true</span></code>.  The conditional statement appears to the right of the <code class="docutils literal notranslate"><span class="pre">while</span></code> keyword.  In the example below, we use a very simple conditional statement, but any valid conditional expression in Julia, including <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">||</span></code> operators can be used.</p>
 <p>Here the conditional statement is <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">5</span></code> which of course is <code class="docutils literal notranslate"><span class="pre">true</span></code> with the given initial value of <code class="docutils literal notranslate"><span class="pre">i=0</span></code>.  So the body of the loop executes, each time incrementing <code class="docutils literal notranslate"><span class="pre">i</span></code> by 1, until <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">5</span></code> which causes the conditional statement to evaluate to <code class="docutils literal notranslate"><span class="pre">false</span></code> and the loop exits.</p>
 <div class="cell docutils container">
@@ -568,6 +573,7 @@ strings -- has the index 4
 </div>
 </div>
 </div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -598,13 +604,13 @@ strings -- has the index 4
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Conditional operators</p>
+            <p class="prev-next-title">Conditionals and Flow Control</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Plots.jl.html" title="next page">
+    <a class='right-next' id="next-link" href="Plots_jl.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Install</p>
+        <p class="prev-next-title">Plots.jl</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
