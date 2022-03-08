@@ -173,6 +173,7 @@ slideshow:
   slide_type: '-'
 ---
 using DifferentialEquations, Measurements, Plots
+pyplot()
 
 g = 9.79 ± 0.02; # Gravitational constants
 L = 1.00 ± 0.01; # Length of the pendulum
