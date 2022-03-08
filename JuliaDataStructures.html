@@ -450,9 +450,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3-element Vector{Float64}:
- -4.740176181945445e68
-  6.9491507659396e-310
-  6.94917197868527e-310
+ 0.0
+ 1.63e-322
+ 5.0e-324
 </pre></div>
 </div>
 </div>
@@ -465,9 +465,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3×3 Matrix{Float64}:
- 6.94918e-310  6.94918e-310  6.94918e-310
- 6.94918e-310  6.94918e-310  6.94918e-310
- 6.94918e-310  6.94918e-310  6.94918e-310
+ 4.0e-323  2.0e-323  3.5e-323
+ 3.0e-323  1.5e-323  5.0e-324
+ 2.5e-323  1.0e-323  6.89903e-310
 </pre></div>
 </div>
 </div>
@@ -868,6 +868,11 @@ size(x) = (3,)
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(a = &quot;a string&quot;, b = 1.0, c = 33)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -876,11 +881,22 @@ size(x) = (3,)
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x[1] = &quot;a string&quot;
+x.a = &quot;a string&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">bb</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">x</span>
 <span class="nd">@show</span> <span class="n">bb</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bb = 1.0
 </pre></div>
 </div>
 </div>
@@ -898,6 +914,12 @@ size(x) = (3,)
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict[&quot;b&quot;] = 33
+dict[&quot;name&quot;] = &quot;John&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <p>They can also be constructed using a collection of tuples.</p>
 <div class="cell docutils container">
@@ -906,6 +928,12 @@ size(x) = (3,)
 
 <span class="nd">@show</span> <span class="n">dict</span><span class="p">[</span><span class="s">&quot;b&quot;</span><span class="p">]</span>
 <span class="nd">@show</span> <span class="n">dict</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict[&quot;b&quot;] = 33
+dict[&quot;name&quot;] = &quot;John&quot;
 </pre></div>
 </div>
 </div>
