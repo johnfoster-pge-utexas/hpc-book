@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Functions" href="JuliaFunctions.html" />
@@ -482,9 +484,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="simple-pendulum">
 <h2>Simple pendulum<a class="headerlink" href="#simple-pendulum" title="Permalink to this headline">¶</a></h2>
-<p>$$
+<div class="math notranslate nohighlight">
+\[
 \ddot{\theta} = \frac{g}{L} \theta
-$$</p>
+\]</div>
 <p><a class="reference external" href="https://tutorials.sciml.ai/html/type_handling/02-uncertainties.html">Example Source</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

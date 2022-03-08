@@ -373,25 +373,28 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="recall-the-chain-rule">
 <h2>Recall the chain rule<a class="headerlink" href="#recall-the-chain-rule" title="Permalink to this headline">¶</a></h2>
 <p>Any computer program can be thought of as a composition of functions, i.e.</p>
-<p>$$
+<div class="math notranslate nohighlight">
+\[
 output = f(g(h(input))) = f(g(h(w_0)) = f(g(w_1)) = f(w_2) = w_3
-$$</p>
+\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bce8e082-0add-4826-9d5a-ac2eb97ca2ac">
-<span class="eqno">(1)<a class="headerlink" href="#equation-bce8e082-0add-4826-9d5a-ac2eb97ca2ac" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c0cb294a-2693-4f65-9684-3e44889a5c05">
+<span class="eqno">(1)<a class="headerlink" href="#equation-c0cb294a-2693-4f65-9684-3e44889a5c05" title="Permalink to this equation">¶</a></span>\[\begin{align}
 w_0 &amp;= input \\
 w_1 &amp;= h(w_0) \\
 w_2 &amp;= g(w_1) \\
 w_3 &amp;= f(w_2) = output
 \end{align}\]</div>
 <p>If we want to compute</p>
-<p>$$
+<div class="math notranslate nohighlight">
+\[
 \frac{d}{d(input)}(output)
-$$</p>
+\]</div>
 <p>we can use the chain rule, i.e.</p>
-<p>$$
+<div class="math notranslate nohighlight">
+\[
 \frac{d}{d(input)}(output) = \frac{d(output)}{dw_2}\frac{dw_2}{dw_1}\frac{dw_1}{d(input)}
-$$</p>
+\]</div>
 <p>The computer can do this for us!  See <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_differentiation">here</a> for more details.</p>
 </div>
 <div class="section" id="forward-vs-reverse-mode-ad">
@@ -415,10 +418,11 @@ $$</p>
 <div class="section" id="forwarddiff-jl">
 <h2>ForwardDiff.jl<a class="headerlink" href="#forwarddiff-jl" title="Permalink to this headline">¶</a></h2>
 <p>Forward mode AD in Julia</p>
-<p>Let’s start with the example $f(x) = 3 x^2$ which of course has the analytic derivative</p>
-<p>$$
-f’(x) = 6 x
-$$</p>
+<p>Let’s start with the example <span class="math notranslate nohighlight">\(f(x) = 3 x^2\)</span> which of course has the analytic derivative</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = 6 x
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">ForwardDiff</span>
@@ -491,9 +495,10 @@ $$</p>
 <div class="section" id="gradients">
 <h3>Gradients<a class="headerlink" href="#gradients" title="Permalink to this headline">¶</a></h3>
 <p>Recall the gradient of a scalar function is</p>
-<p>$$
+<div class="math notranslate nohighlight">
+\[
 \nabla f(x_1, x_2) = \left[ \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}\right]
-$$</p>
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="mi">4</span>
@@ -553,14 +558,14 @@ $$</p>
 <div class="section" id="jacobian">
 <h3>Jacobian<a class="headerlink" href="#jacobian" title="Permalink to this headline">¶</a></h3>
 <p>Recall the Jacobian of a vector function is</p>
-<p>$$
-\nabla \vec{f}(x_1, x_2) =</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8c1d08d5-18c5-4b16-96ab-468e9256fa01">
-<span class="eqno">(2)<a class="headerlink" href="#equation-8c1d08d5-18c5-4b16-96ab-468e9256fa01" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\nabla \vec{f}(x_1, x_2) = 
+\begin{bmatrix}
 \frac{\partial f_1}{\partial x_1} &amp; \frac{\partial f_1}{\partial x_2} \\
 \frac{\partial f_2}{\partial x_1} &amp; \frac{\partial f_2}{\partial x_2}
-\end{bmatrix}\]</div>
-<p>$$</p>
+\end{bmatrix}
+\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>

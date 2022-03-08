@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Automatic Differentiation" href="AutomaticDifferentiation.html" />
@@ -535,7 +537,7 @@ Stacktrace:
 <div class="section" id="contour-plots">
 <h2>Contour plots<a class="headerlink" href="#contour-plots" title="Permalink to this headline">¶</a></h2>
 <p>The following is an example of a filled contour plot in Plots.jl using the command. This figure shows the depth of a petroleum reservoir.</p>
-<p>Contour plots must have data that is defined on a rectangular grid in the $(x, y)$ plane.  In the example below, the file <code class="docutils literal notranslate"><span class="pre">nechelik.npy</span></code> has already been organized in this way.  Scattered data must be interpolated onto a rectangular grid.  Any data that has the format of a floating point <code class="docutils literal notranslate"><span class="pre">NaN</span></code> will be shown as white space in the contour plot.</p>
+<p>Contour plots must have data that is defined on a rectangular grid in the <span class="math notranslate nohighlight">\((x, y)\)</span> plane.  In the example below, the file <code class="docutils literal notranslate"><span class="pre">nechelik.npy</span></code> has already been organized in this way.  Scattered data must be interpolated onto a rectangular grid.  Any data that has the format of a floating point <code class="docutils literal notranslate"><span class="pre">NaN</span></code> will be shown as white space in the contour plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">NPZ</span>

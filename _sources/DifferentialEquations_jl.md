@@ -53,11 +53,11 @@ add DifferentialEquations
 
 ## Example - Robertson Equations
 
-\begin{align}
+\begin{align*}
 \frac{dy_1}{dt} &= -0.04y_1 + 10^4 y_2 y_3 \\
 \frac{dy_2}{dt} &=  0.04y_1 - 10^4 y_2 y_3 - 3 * 10^7 y_2^2 \\
 \frac{dy_3}{dt} &=  3 * 10^7 y_2^2
-\end{align}
+\end{align*}
 
 +++ {"slideshow": {"slide_type": "fragment"}}
 
@@ -300,11 +300,11 @@ $$
 where $M$ is known as the *mass matrix*.  We can rewrite the Robertson equations as
 
 
-\begin{align}
+\begin{align*}
 \frac{dy_1}{dt} &= -0.04y_1 + 10^4 y_2 y_3 \\
 \frac{dy_2}{dt} &=  0.04y_1 - 10^4 y_2 y_3 - 3 * 10^7 y_2^2 \\
 1 &= y_1 + y_2 + y_3
-\end{align}
+\end{align*}
 
 ```{code-cell}
 ---
@@ -351,11 +351,11 @@ $$
 
 Rewriting the Robertson equations in this form we have
 
-\begin{align}
+\begin{align*}
 0  &= -0.04y_1 + 10^4 y_2 y_3 - \frac{dy_1}{dt} \\
 0  &=  0.04y_1 - 10^4 y_2 y_3 - 3 * 10^7 y_2^2 - \frac{dy_2}{dt} \\
 0 &= y_1 + y_2 + y_3 - 1
-\end{align}
+\end{align*}
 
 ```{code-cell}
 ---
