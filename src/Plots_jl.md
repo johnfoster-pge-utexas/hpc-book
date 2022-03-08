@@ -209,7 +209,7 @@ The following example is a surface plot; however, the default *backend* [`GR`]([
 slideshow:
   slide_type: '-'
 ---
-plot(X, Y, Z, st=:surface)
+plot(X, Y, Z, st=:surface, display_option=Plots.GR.OPTION_SHADED_MESH)
 ```
 
 +++ {"slideshow": {"slide_type": "subslide"}}
