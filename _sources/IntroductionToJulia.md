@@ -13,7 +13,7 @@ kernelspec:
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-```{image} images/julia-logo.png
+```{image} images/julia_logo.png
 :alt: julia-logo
 :width: 300px
 :align: center
