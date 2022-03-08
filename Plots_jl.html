@@ -498,21 +498,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>ArgumentError: Package Tables not found in current path:
-- Run `import Pkg; Pkg.add(&quot;Tables&quot;)` to install the Tables package.
-
-
-Stacktrace:
- [1] require(into::Module, mod::Symbol)
-   @ Base ./loading.jl:967
- [2] eval
-   @ ./boot.jl:373 [inlined]
- [3] include_string(mapexpr::typeof(REPL.softscope), mod::Module, code::String, filename::String)
-   @ Base ./loading.jl:1196
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -533,18 +518,7 @@ Stacktrace:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">UndefVarError</span>: porosity not defined
-
-<span class="ne">Stacktrace</span>:
- <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
-   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span><span class="mi">4</span>
- <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="nb">eval</span>
-   <span class="o">@</span> <span class="o">./</span><span class="n">boot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">373</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">include_string</span><span class="p">(</span><span class="n">mapexpr</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">REPL</span><span class="o">.</span><span class="n">softscope</span><span class="p">),</span> <span class="n">mod</span><span class="p">::</span><span class="n">Module</span><span class="p">,</span> <span class="n">code</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">filename</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
-   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">loading</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">1196</span>
-</pre></div>
-</div>
-</div>
+<img alt="_images/Plots_jl_18_0.svg" src="_images/Plots_jl_18_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="contour-plots">
@@ -579,7 +553,7 @@ Stacktrace:
 <p>The following example is a surface plot; however, the default <em>backend</em> <a class="reference external" href="%5Bhttps://docs.juliaplots.org/stable/backends/#%5BGR%5D"><code class="docutils literal notranslate"><span class="pre">GR</span></code></a> does not interpolate the surface well.  It’s better to use a different backend.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">st</span><span class="o">=</span><span class="ss">:surface</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">st</span><span class="o">=</span><span class="ss">:surface</span><span class="p">,</span> <span class="n">display_option</span><span class="o">=</span><span class="n">Plots</span><span class="o">.</span><span class="n">GR</span><span class="o">.</span><span class="n">OPTION_SHADED_MESH</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -604,7 +578,7 @@ Stacktrace:
 </a>
 for more information.
 </div>
-</div><div class="output text_html">    <div id="1530c047-716e-4c86-b9f5-740e231623e2" style="width:600px;height:400px;"></div>
+</div><div class="output text_html">    <div id="d5e42d28-cf48-4c28-a793-dbd847f544f5" style="width:600px;height:400px;"></div>
     <script>
         requirejs.config({
         paths: {
@@ -613,7 +587,7 @@ for more information.
     });
     require(['Plotly'], function (Plotly) {
 
-        Plotly.newPlot('1530c047-716e-4c86-b9f5-740e231623e2', [
+        Plotly.newPlot('d5e42d28-cf48-4c28-a793-dbd847f544f5', [
     {
         "xaxis": "x",
         "colorbar": {
