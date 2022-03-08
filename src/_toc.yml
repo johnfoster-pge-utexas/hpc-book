@@ -12,7 +12,6 @@ chapters:
   - file: JuliaDataStructures
   - file: JuliaConditionalsFlowControl
   - file: JuliaLoops
-  - file: Plots.jl
+  - file: Plots_jl
   - file: AutomaticDifferentiation
-  - file: DifferentialEquations.jl
-
+  - file: DifferentialEquations_jl
