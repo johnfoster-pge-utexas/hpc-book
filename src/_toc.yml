@@ -15,3 +15,5 @@ chapters:
   - file: Plots_jl
   - file: AutomaticDifferentiation
   - file: DifferentialEquations_jl
+chapters:
+- file: IntroductionToMPI
