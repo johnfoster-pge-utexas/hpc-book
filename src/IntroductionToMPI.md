@@ -122,7 +122,7 @@ hide_input: false
 slideshow:
   slide_type: fragment
 ---
-!$HOME/.julia/bin/mpiexecjl --project=. -np 4 julia hello.jl
+!$HOME/.julia/bin/mpiexecjl --project=.. -np 4 julia hello.jl
 ```
 
 ```{code-cell} ipython3
