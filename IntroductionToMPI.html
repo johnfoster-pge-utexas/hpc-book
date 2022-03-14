@@ -391,20 +391,17 @@ projects.  This is usually installed at <code class="docutils literal notranslat
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nv">$HOME</span>/.julia/bin/mpiexecjl --project<span class="o">=</span>. -np <span class="m">4</span> julia hello.jl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nv">$HOME</span>/.julia/bin/mpiexecjl --project<span class="o">=</span>.. -np <span class="m">4</span> julia hello.jl
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">ERROR: </span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world, I am rank 0 of 4
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArgumentError: Package MPI not found in current path:
-- Run `import Pkg; Pkg.add(&quot;MPI&quot;)` to install the MPI package.
-
-Stacktrace:
- [1] <span class=" -Color -Color-Bold">require(</span>into::Module, mod::Symbol<span class=" -Color -Color-Bold">)</span>
-   @ Base ./loading.jl:967
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world, I am rank 1 of 4
+Hello world, I am rank 2 of 4
+Hello world, I am rank 3 of 4
 </pre></div>
 </div>
 </div>
