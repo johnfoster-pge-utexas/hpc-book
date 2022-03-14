@@ -396,7 +396,15 @@ projects.  This is usually installed at <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/bin/sh: 1: /home/runner/.julia/bin/mpiexecjl: not found
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">ERROR: </span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArgumentError: Package MPI not found in current path:
+- Run `import Pkg; Pkg.add(&quot;MPI&quot;)` to install the MPI package.
+
+Stacktrace:
+ [1] <span class=" -Color -Color-Bold">require(</span>into::Module, mod::Symbol<span class=" -Color -Color-Bold">)</span>
+   @ Base ./loading.jl:967
 </pre></div>
 </div>
 </div>
