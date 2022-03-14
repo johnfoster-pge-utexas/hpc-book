@@ -421,51 +421,41 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>InterruptException:
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">InterruptException</span>:
 
-Stacktrace:
-  [1] #mapreduce#725
-    @ ./reducedim.jl:322 [inlined]
-  [2] #_maximum#763
-    @ ./reducedim.jl:916 [inlined]
-  [3] _maximum
-    @ ./reducedim.jl:916 [inlined]
-  [4] #_maximum#762
-    @ ./reducedim.jl:915 [inlined]
-  [5] _maximum
-    @ ./reducedim.jl:915 [inlined]
-  [6] #maximum#740
-    @ ./reducedim.jl:889 [inlined]
-  [7] update_child_bboxes!(layout::Plots.GridLayout, minimum_perimeter::Vector{Measures.AbsoluteLength})
-    @ Plots ~/.julia/packages/Plots/cPJQu/src/layouts.jl:339
-  [8] update_child_bboxes!
-    @ ~/.julia/packages/Plots/cPJQu/src/layouts.jl:328 [inlined]
-  [9] prepare_output(plt::Plots.Plot{Plots.GRBackend})
-    @ Plots ~/.julia/packages/Plots/cPJQu/src/plot.jl:241
- [10] show(io::IOBuffer, m::MIME{Symbol(&quot;image/svg+xml&quot;)}, plt::Plots.Plot{Plots.GRBackend})
-    @ Plots ~/.julia/packages/Plots/cPJQu/src/output.jl:204
- [11] sprint(::Function, ::MIME{Symbol(&quot;image/svg+xml&quot;)}, ::Vararg{Any}; context::Nothing, sizehint::Int64)
-    @ Base ./strings/io.jl:114
- [12] sprint
-    @ ./strings/io.jl:108 [inlined]
- [13] _ijulia_display_dict(plt::Plots.Plot{Plots.GRBackend})
-    @ Plots ~/.julia/packages/Plots/cPJQu/src/ijulia.jl:47
- [14] display_dict(plt::Plots.Plot{Plots.GRBackend})
-    @ Plots ~/.julia/packages/Plots/cPJQu/src/init.jl:92
- [15] #invokelatest#2
-    @ ./essentials.jl:716 [inlined]
- [16] invokelatest
-    @ ./essentials.jl:714 [inlined]
- [17] execute_request(socket::ZMQ.Socket, msg::IJulia.Msg)
-    @ IJulia ~/.julia/packages/IJulia/e8kqU/src/execute_request.jl:112
- [18] #invokelatest#2
-    @ ./essentials.jl:716 [inlined]
- [19] invokelatest
-    @ ./essentials.jl:714 [inlined]
- [20] eventloop(socket::ZMQ.Socket)
-    @ IJulia ~/.julia/packages/IJulia/e8kqU/src/eventloop.jl:8
- [21] (::IJulia.var&quot;#15#18&quot;)()
-    @ IJulia ./task.jl:423
+<span class="ne">Stacktrace</span>:
+  <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">Set</span>
+    <span class="o">@</span> <span class="o">./</span><span class="nb">set</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">10</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+  <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">copymutable</span>
+    <span class="o">@</span> <span class="o">./</span><span class="nb">set</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">74</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+  <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">setdiff</span>
+    <span class="o">@</span> <span class="o">./</span><span class="n">abstractset</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">166</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+  <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">iterate</span>
+    <span class="o">@</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RecipesPipeline</span><span class="o">/</span><span class="n">oVorB</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">utils</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">37</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+  <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">iterate</span>
+    <span class="o">@</span> <span class="o">./</span><span class="n">abstractdict</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">64</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+  <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="n">warn_on_unsupported_args</span><span class="p">(</span><span class="n">pkg</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">,</span> <span class="n">plotattributes</span><span class="p">::</span><span class="n">RecipesPipeline</span><span class="o">.</span><span class="n">DefaultsDict</span><span class="p">)</span>
+    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">cPJQu</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">args</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">1613</span>
+  <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="n">_add_the_series</span><span class="p">(</span><span class="n">plt</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">Plot</span><span class="p">{</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">},</span> <span class="n">sp</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">Subplot</span><span class="p">{</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">},</span> <span class="n">plotattributes</span><span class="p">::</span><span class="n">RecipesPipeline</span><span class="o">.</span><span class="n">DefaultsDict</span><span class="p">)</span>
+    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">cPJQu</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">pipeline</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">413</span>
+  <span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="n">add_series</span><span class="o">!(</span>plt::Plots.Plot<span class="o">{</span>Plots.GRBackend<span class="o">}</span>, plotattributes::RecipesPipeline.DefaultsDict<span class="o">)</span>
+    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">cPJQu</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">pipeline</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">343</span>
+  <span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="n">_process_seriesrecipe</span><span class="p">(</span><span class="n">plt</span><span class="p">::</span><span class="n">Any</span><span class="p">,</span> <span class="n">plotattributes</span><span class="p">::</span><span class="n">Any</span><span class="p">)</span>
+    <span class="o">@</span> <span class="n">RecipesPipeline</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RecipesPipeline</span><span class="o">/</span><span class="n">oVorB</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">series_recipe</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">46</span>
+ <span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="n">_process_seriesrecipes</span><span class="o">!(</span>plt::Any, kw_list::Any<span class="o">)</span>
+    <span class="o">@</span> <span class="n">RecipesPipeline</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RecipesPipeline</span><span class="o">/</span><span class="n">oVorB</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">series_recipe</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">27</span>
+ <span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="n">recipe_pipeline</span><span class="o">!(</span>plt::Any, plotattributes::Any, args::Any<span class="o">)</span>
+    <span class="o">@</span> <span class="n">RecipesPipeline</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RecipesPipeline</span><span class="o">/</span><span class="n">oVorB</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">RecipesPipeline</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">97</span>
+ <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="n">_plot</span><span class="o">!(</span>plt::Plots.Plot, plotattributes::Any, args::Any<span class="o">)</span>
+    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">cPJQu</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">208</span>
+ <span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="c1">#plot#135</span>
+    <span class="o">@</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">cPJQu</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">91</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
+    <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mi">4</span>
+ <span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="nb">eval</span>
+    <span class="o">@</span> <span class="o">./</span><span class="n">boot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">373</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="n">include_string</span><span class="p">(</span><span class="n">mapexpr</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">REPL</span><span class="o">.</span><span class="n">softscope</span><span class="p">),</span> <span class="n">mod</span><span class="p">::</span><span class="n">Module</span><span class="p">,</span> <span class="n">code</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">filename</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+    <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">loading</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">1196</span>
 </pre></div>
 </div>
 </div>
