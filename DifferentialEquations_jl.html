@@ -55,6 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction to Message Passing Interface (MPI)" href="MPIChapterIntro.html" />
+    <link rel="prev" title="Automatic Differentiation" href="AutomaticDifferentiation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -98,11 +100,90 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="IntroductionToMPI.html">
-   Introduction to Message Passing Interface
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="JuliaChapterIntro.html">
+   Introduction to Julia
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="IntroductionToJulia.html">
+     Why Julia?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaFunctions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaTypes.html">
+     Types and type declarations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaDataStructures.html">
+     Common Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaConditionalsFlowControl.html">
+     Conditionals and Flow Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaLoops.html">
+     For and While Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Plots_jl.html">
+     Plots.jl
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AutomaticDifferentiation.html">
+     Automatic Differentiation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Differential Equations.jl
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="MPIChapterIntro.html">
+   Introduction to Message Passing Interface (MPI)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="IntroductionToMPI.html">
+     Introduction to Message Passing Interface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MPI_jlPointToPoint.html">
+     Point-to-Point Communication
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MPI_jlCollective.html">
+     Collective Communication
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -421,49 +502,37 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">InterruptException</span>:
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>InterruptException:
 
-<span class="ne">Stacktrace</span>:
-  <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">gr_set_tickfont</span><span class="p">(</span><span class="n">sp</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">Subplot</span><span class="p">{</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">},</span> <span class="n">letter</span><span class="p">::</span><span class="n">Symbol</span><span class="p">)</span>
-    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">cPJQu</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">backends</span><span class="o">/</span><span class="n">gr</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">678</span>
-  <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">_update_min_padding</span><span class="o">!(</span>sp::Plots.Subplot<span class="o">{</span>Plots.GRBackend<span class="o">})</span>
-    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">cPJQu</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">backends</span><span class="o">/</span><span class="n">gr</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">890</span>
-  <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">iterate</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">generator</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">47</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
-  <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">_collect</span><span class="p">(</span><span class="n">c</span><span class="p">::</span><span class="n">Matrix</span><span class="p">{</span><span class="n">AbstractLayout</span><span class="p">},</span> <span class="n">itr</span><span class="p">::</span><span class="n">Base</span><span class="o">.</span><span class="n">Generator</span><span class="p">{</span><span class="n">Matrix</span><span class="p">{</span><span class="n">AbstractLayout</span><span class="p">},</span> <span class="n">typeof</span><span class="p">(</span><span class="n">Plots</span><span class="o">.</span><span class="n">_update_min_padding</span><span class="o">!)}</span>, #unused#::Base.EltypeUnknown, isz::Base.HasShape<span class="o">{</span><span class="m">2</span><span class="o">})</span>
-    <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">array</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">744</span>
-  <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">collect_similar</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">array</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">653</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
-  <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="nb">map</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">abstractarray</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">2849</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
-  <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="n">_update_min_padding</span><span class="o">!(</span>layout::Plots.GridLayout<span class="o">)</span>
-    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">cPJQu</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">layouts</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">290</span>
-  <span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="n">prepare_output</span><span class="p">(</span><span class="n">plt</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">Plot</span><span class="p">{</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">})</span>
-    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">cPJQu</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">224</span>
-  <span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="n">show</span><span class="p">(</span><span class="n">io</span><span class="p">::</span><span class="n">IOBuffer</span><span class="p">,</span> <span class="n">m</span><span class="p">::</span><span class="n">MIME</span><span class="p">{</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;image/svg+xml&quot;</span><span class="p">)},</span> <span class="n">plt</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">Plot</span><span class="p">{</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">})</span>
-    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">cPJQu</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">output</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">204</span>
- <span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="n">sprint</span><span class="p">(::</span><span class="n">Function</span><span class="p">,</span> <span class="p">::</span><span class="n">MIME</span><span class="p">{</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;image/svg+xml&quot;</span><span class="p">)},</span> <span class="p">::</span><span class="n">Vararg</span><span class="p">{</span><span class="n">Any</span><span class="p">};</span> <span class="n">context</span><span class="p">::</span><span class="n">Nothing</span><span class="p">,</span> <span class="n">sizehint</span><span class="p">::</span><span class="n">Int64</span><span class="p">)</span>
-    <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">strings</span><span class="o">/</span><span class="n">io</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">114</span>
- <span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="n">sprint</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">strings</span><span class="o">/</span><span class="n">io</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">108</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="n">_ijulia_display_dict</span><span class="p">(</span><span class="n">plt</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">Plot</span><span class="p">{</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">})</span>
-    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">cPJQu</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">ijulia</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">47</span>
- <span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="n">display_dict</span><span class="p">(</span><span class="n">plt</span><span class="p">::</span><span class="n">Plots</span><span class="o">.</span><span class="n">Plot</span><span class="p">{</span><span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">})</span>
-    <span class="o">@</span> <span class="n">Plots</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">Plots</span><span class="o">/</span><span class="n">cPJQu</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">92</span>
- <span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="c1">#invokelatest#2</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">essentials</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">716</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="n">invokelatest</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">essentials</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">714</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="n">execute_request</span><span class="p">(</span><span class="n">socket</span><span class="p">::</span><span class="n">ZMQ</span><span class="o">.</span><span class="n">Socket</span><span class="p">,</span> <span class="n">msg</span><span class="p">::</span><span class="n">IJulia</span><span class="o">.</span><span class="n">Msg</span><span class="p">)</span>
-    <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">e8kqU</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">execute_request</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">112</span>
- <span class="p">[</span><span class="mi">17</span><span class="p">]</span> <span class="c1">#invokelatest#2</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">essentials</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">716</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">18</span><span class="p">]</span> <span class="n">invokelatest</span>
-    <span class="o">@</span> <span class="o">./</span><span class="n">essentials</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">714</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">19</span><span class="p">]</span> <span class="n">eventloop</span><span class="p">(</span><span class="n">socket</span><span class="p">::</span><span class="n">ZMQ</span><span class="o">.</span><span class="n">Socket</span><span class="p">)</span>
-    <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">e8kqU</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">eventloop</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">8</span>
- <span class="p">[</span><span class="mi">20</span><span class="p">]</span> <span class="p">(::</span><span class="n">IJulia</span><span class="o">.</span><span class="n">var</span><span class="s2">&quot;#15#18&quot;</span><span class="p">)()</span>
-    <span class="o">@</span> <span class="n">IJulia</span> <span class="o">./</span><span class="n">task</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">423</span>
+Stacktrace:
+  [1] update_child_bboxes!
+    @ ~/.julia/packages/Plots/cPJQu/src/layouts.jl:328 [inlined]
+  [2] prepare_output(plt::Plots.Plot{Plots.GRBackend})
+    @ Plots ~/.julia/packages/Plots/cPJQu/src/plot.jl:241
+  [3] show(io::IOBuffer, m::MIME{Symbol(&quot;image/svg+xml&quot;)}, plt::Plots.Plot{Plots.GRBackend})
+    @ Plots ~/.julia/packages/Plots/cPJQu/src/output.jl:204
+  [4] sprint(::Function, ::MIME{Symbol(&quot;image/svg+xml&quot;)}, ::Vararg{Any}; context::Nothing, sizehint::Int64)
+    @ Base ./strings/io.jl:114
+  [5] sprint
+    @ ./strings/io.jl:108 [inlined]
+  [6] _ijulia_display_dict(plt::Plots.Plot{Plots.GRBackend})
+    @ Plots ~/.julia/packages/Plots/cPJQu/src/ijulia.jl:47
+  [7] display_dict(plt::Plots.Plot{Plots.GRBackend})
+    @ Plots ~/.julia/packages/Plots/cPJQu/src/init.jl:92
+  [8] #invokelatest#2
+    @ ./essentials.jl:716 [inlined]
+  [9] invokelatest
+    @ ./essentials.jl:714 [inlined]
+ [10] execute_request(socket::ZMQ.Socket, msg::IJulia.Msg)
+    @ IJulia ~/.julia/packages/IJulia/e8kqU/src/execute_request.jl:112
+ [11] #invokelatest#2
+    @ ./essentials.jl:716 [inlined]
+ [12] invokelatest
+    @ ./essentials.jl:714 [inlined]
+ [13] eventloop(socket::ZMQ.Socket)
+    @ IJulia ~/.julia/packages/IJulia/e8kqU/src/eventloop.jl:8
+ [14] (::IJulia.var&quot;#15#18&quot;)()
+    @ IJulia ./task.jl:423
 </pre></div>
 </div>
 </div>
@@ -840,7 +909,21 @@ J_{ij} = \gamma \frac{\partial f_i}{\partial(du)_j} + \frac{\partial f_i}{\parti
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="AutomaticDifferentiation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Automatic Differentiation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="MPIChapterIntro.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to Message Passing Interface (MPI)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

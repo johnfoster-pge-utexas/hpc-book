@@ -1,0 +1,682 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Point-to-Point Communication &#8212; An Introduction to High-Performance Computing</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Collective Communication" href="MPI_jlCollective.html" />
+    <link rel="prev" title="Introduction to Message Passing Interface" href="IntroductionToMPI.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">An Introduction to High-Performance Computing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction to High-Performance Computing
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="JuliaChapterIntro.html">
+   Introduction to Julia
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="IntroductionToJulia.html">
+     Why Julia?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaFunctions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaTypes.html">
+     Types and type declarations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaDataStructures.html">
+     Common Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaConditionalsFlowControl.html">
+     Conditionals and Flow Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JuliaLoops.html">
+     For and While Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Plots_jl.html">
+     Plots.jl
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AutomaticDifferentiation.html">
+     Automatic Differentiation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DifferentialEquations_jl.html">
+     Differential Equations.jl
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="MPIChapterIntro.html">
+   Introduction to Message Passing Interface (MPI)
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="IntroductionToMPI.html">
+     Introduction to Message Passing Interface
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Point-to-Point Communication
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MPI_jlCollective.html">
+     Collective Communication
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/MPI_jlPointToPoint.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/MPI_jlPointToPoint.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/johnfoster-pge-utexas/hpc-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/johnfoster-pge-utexas/hpc-book/issues/new?title=Issue%20on%20page%20%2FMPI_jlPointToPoint.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas/hpc-book/main?urlpath=tree/src/MPI_jlPointToPoint.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#send-recv">
+   send/recv
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Send/Recv
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isend-irecv">
+   Isend/Irecv
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Point-to-Point Communication</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#send-recv">
+   send/recv
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Send/Recv
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isend-irecv">
+   Isend/Irecv
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="point-to-point-communication">
+<h1>Point-to-Point Communication<a class="headerlink" href="#point-to-point-communication" title="Permalink to this headline">¶</a></h1>
+<p>Sending data from one point (process/task) to another point (process/task)</p>
+<div class="section" id="send-recv">
+<h2>send/recv<a class="headerlink" href="#send-recv" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">MPI</span>
+<span class="n">MPI</span><span class="o">.</span><span class="n">Init</span><span class="p">()</span>
+
+<span class="n">comm</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Comm_rank</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Comm_size</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
+
+<span class="k">struct</span> <span class="kt">Point</span>
+  <span class="n">x</span><span class="o">::</span><span class="kt">Float64</span>
+  <span class="n">y</span><span class="o">::</span><span class="kt">Float64</span>
+<span class="k">end</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">MPI</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">comm</span><span class="p">;</span> <span class="n">dest</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="n">rank</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">comm</span><span class="p">;</span> <span class="n">source</span><span class="o">=</span><span class="p">(</span><span class="n">rank</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">MPI</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">comm</span><span class="p">;</span> <span class="n">dest</span><span class="o">=</span><span class="p">(</span><span class="n">rank</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">comm</span><span class="p">;</span> <span class="n">source</span><span class="o">=</span><span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;My rank is </span><span class="si">$</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span><span class="se">\n</span><span class="s"> I received this: </span><span class="si">$</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">MPI</span><span class="o">.</span><span class="n">Barrier</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the preceding code is saved as a file <span class="xref myst">send_recv.jl</span>, we can run</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>~/.julia/bin/mpiexecjl --project<span class="o">=</span>.. -np <span class="m">3</span> julia send_recv.jl
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: ERROR: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: ERROR: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching recv(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>::
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>send(::
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MPI.Comm
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>; source=1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Point, ::MPI.Comm; 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: dest=1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closest candidates are:
+  recv(!Matched::Integer, !Matched::Integer, !Matched::MPI.Comm) at ~/.julia/packages/MPI/08SPr/src/pointtopoint.jl:310 got unsupported keyword argument &quot;source&quot;
+Stacktrace:
+ [1] top-level scope
+no method matching 
+Closest candidates are:
+  send(::Any, !Matched::Integer, !Matched::Integer, !Matched::MPI.Comm) at ~/.julia/packages/MPI/08SPr/src/pointtopoint.jl:207 got unsupported keyword argument &quot;dest&quot;
+Stacktrace:
+ [1] top-level scope
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>recv(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>::
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   @ ~/work/hpc-book/hpc-book/src/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   @ ~/work/hpc-book/hpc-book/src/send_recv.jl:17
+in expression starting at /home/runner/work/hpc-book/hpc-book/src/send_recv.jl:16
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 3303 RUNNING AT fv-az91-811
+=   EXIT CODE: 9
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Killed (signal 9)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions
+<span class=" -Color -Color-Bold">ERROR: </span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>failed process: Process(`
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.julia/artifacts/af2355b4e003d5800b907f71eaf64c62b6e365f1/bin/mpiexec -np 3 julia send_recv.jl`, ProcessExited(9)) [9]
+
+Stacktrace:
+  [1] <span class=" -Color -Color-Bold">pipeline_error</span>
+    @ ./process.jl:531 [inlined]
+  [2] <span class=" -Color -Color-Bold">run(</span>::Cmd; wait::Bool<span class=" -Color -Color-Bold">)</span>
+    @ Base ./process.jl:446
+  [3] <span class=" -Color -Color-Bold">run(</span>::Cmd<span class=" -Color -Color-Bold">)</span>
+    @ Base process.jl:444
+  [4] <span class=" -Color -Color-Bold">(::var&quot;#1#2&quot;)(</span>exe::Cmd<span class=" -Color -Color-Bold">)</span>
+    @ <span class=" -Color -Color-Magenta">Main</span> none:4
+  [5] <span class=" -Color -Color-Bold">(::MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;})(</span>cmd::String<span class=" -Color -Color-Bold">)</span>
+    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
+  [6] <span class=" -Color -Color-Bold">(::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String})()</span>
+    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:49
+  [7] <span class=" -Color -Color-Bold">withenv(</span>::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String}, ::Pair{String, String}, ::Vararg{Pair{String, String}}<span class=" -Color -Color-Bold">)</span>
+    @ Base env.jl:172
+  [8] <span class=" -Color -Color-Bold">withenv_executable_wrapper(</span>f::Function, executable_path::String, PATH::String, LIBPATH::String, adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
+    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:48
+  [9] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}; kwargs::Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}<span class=" -Color -Color-Bold">)</span>
+    @ Base ./essentials.jl:716
+ [10] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}<span class=" -Color -Color-Bold">)</span>
+    @ Base ./essentials.jl:714
+ [11] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function; adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
+    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
+ [12] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function<span class=" -Color -Color-Bold">)</span>
+    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
+ [13] <span class=" -Color -Color-Bold">mpiexec(</span>fn::var&quot;#1#2&quot;<span class=" -Color -Color-Bold">)</span>
+    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
+ [14] top-level scope
+    @ none:4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Send/Recv<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">MPI</span>
+<span class="n">MPI</span><span class="o">.</span><span class="n">Init</span><span class="p">()</span>
+
+<span class="n">comm</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Comm_rank</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Comm_size</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
+
+
+<span class="n">send_buf</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">recv_buf</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">fill!</span><span class="p">(</span><span class="n">send_buf</span><span class="p">,</span> <span class="kt">Float64</span><span class="p">(</span><span class="n">rank</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">MPI</span><span class="o">.</span><span class="n">Send</span><span class="p">(</span><span class="n">send_buf</span><span class="p">,</span> <span class="n">comm</span><span class="p">;</span> <span class="n">dest</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="n">rank</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="n">MPI</span><span class="o">.</span><span class="n">Recv!</span><span class="p">(</span><span class="n">recv_buf</span><span class="p">,</span> <span class="n">comm</span><span class="p">;</span> <span class="n">source</span><span class="o">=</span><span class="p">(</span><span class="n">rank</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">MPI</span><span class="o">.</span><span class="n">Send</span><span class="p">(</span><span class="n">send_buf</span><span class="p">,</span> <span class="n">comm</span><span class="p">;</span> <span class="n">dest</span><span class="o">=</span><span class="p">(</span><span class="n">rank</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">MPI</span><span class="o">.</span><span class="n">Recv!</span><span class="p">(</span><span class="n">recv_buf</span><span class="p">,</span> <span class="n">comm</span><span class="p">;</span> <span class="n">source</span><span class="o">=</span><span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;My rank is </span><span class="si">$</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span><span class="se">\n</span><span class="s"> I received this: </span><span class="si">$</span><span class="p">(</span><span class="n">recv_buf</span><span class="p">)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">MPI</span><span class="o">.</span><span class="n">Barrier</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the preceding code is saved as a file <span class="xref myst">Send_Recv.jl</span>, we can run</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>~/.julia/bin/mpiexecjl -np <span class="m">3</span> julia Send_Recv.jl
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">ERROR: </span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArgumentError: Package MPI not found in current path:
+- Run `import Pkg; Pkg.add(&quot;MPI&quot;)` to install the MPI package.
+
+Stacktrace:
+ [1] <span class=" -Color -Color-Bold">require(</span>into::Module, mod::Symbol<span class=" -Color -Color-Bold">)</span>
+   @ Base ./loading.jl:967
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="isend-irecv">
+<h2>Isend/Irecv<a class="headerlink" href="#isend-irecv" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">MPI</span>
+<span class="n">MPI</span><span class="o">.</span><span class="n">Init</span><span class="p">()</span>
+
+<span class="n">comm</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Comm_rank</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Comm_size</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
+
+
+<span class="n">send_buf</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">recv_buf</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">fill!</span><span class="p">(</span><span class="n">send_buf</span><span class="p">,</span> <span class="kt">Float64</span><span class="p">(</span><span class="n">rank</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">send_status</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Isend</span><span class="p">(</span><span class="n">send_buf</span><span class="p">,</span> <span class="n">comm</span><span class="p">;</span> <span class="n">dest</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="n">rank</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="n">recv_status</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Irecv!</span><span class="p">(</span><span class="n">recv_buf</span><span class="p">,</span> <span class="n">comm</span><span class="p">;</span> <span class="n">source</span><span class="o">=</span><span class="p">(</span><span class="n">rank</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">send_status</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Isend</span><span class="p">(</span><span class="n">send_buf</span><span class="p">,</span> <span class="n">comm</span><span class="p">;</span> <span class="n">dest</span><span class="o">=</span><span class="p">(</span><span class="n">rank</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">recv_status</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Irecv!</span><span class="p">(</span><span class="n">recv_buf</span><span class="p">,</span> <span class="n">comm</span><span class="p">;</span> <span class="n">source</span><span class="o">=</span><span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="n">stats</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Waitall!</span><span class="p">([</span><span class="n">send_status</span><span class="p">,</span> <span class="n">recv_status</span><span class="p">])</span>
+
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;My rank is </span><span class="si">$</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span><span class="se">\n</span><span class="s"> I received this: </span><span class="si">$</span><span class="p">(</span><span class="n">recv_buf</span><span class="p">)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the preceding code is saved as a file <code class="docutils literal notranslate"><span class="pre">Isend_Irecv.jl</span></code>, we can run</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>~/.julia/bin/mpiexecjl -np <span class="m">3</span> julia ISend_IRecv.jl
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">ERROR: </span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArgumentError: Package MPI not found in current path:
+- Run `import Pkg; Pkg.add(&quot;MPI&quot;)` to install the MPI package.
+
+Stacktrace:
+ [1] <span class=" -Color -Color-Bold">require(</span>into::Module, mod::Symbol<span class=" -Color -Color-Bold">)</span>
+   @ Base ./loading.jl:967
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="IntroductionToMPI.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction to Message Passing Interface</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="MPI_jlCollective.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Collective Communication</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By John T. Foster<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
