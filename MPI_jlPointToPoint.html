@@ -391,122 +391,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: ERROR: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My rank is 1
+ I received this: Point(0.0, 0.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: ERROR: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My rank is 2
+ I received this: Point(1.0, 1.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching recv(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>send(::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MPI.Comm
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>; source=1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Point, ::MPI.Comm; 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: dest=1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closest candidates are:
-  recv(!Matched::Integer, !Matched::Integer, !Matched::MPI.Comm) at ~/.julia/packages/MPI/08SPr/src/pointtopoint.jl:310 got unsupported keyword argument &quot;source&quot;
-Stacktrace:
- [1] top-level scope
-no method matching 
-Closest candidates are:
-  send(::Any, !Matched::Integer, !Matched::Integer, !Matched::MPI.Comm) at ~/.julia/packages/MPI/08SPr/src/pointtopoint.jl:207 got unsupported keyword argument &quot;dest&quot;
-Stacktrace:
- [1] top-level scope
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>recv(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   @ ~/work/hpc-book/hpc-book/src/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   @ ~/work/hpc-book/hpc-book/src/send_recv.jl:17
-in expression starting at /home/runner/work/hpc-book/hpc-book/src/send_recv.jl:16
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===================================================================================
-=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
-=   PID 3303 RUNNING AT fv-az91-811
-=   EXIT CODE: 9
-=   CLEANING UP REMAINING PROCESSES
-=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
-===================================================================================
-YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Killed (signal 9)
-This typically refers to a problem with your application.
-Please see the FAQ page for debugging suggestions
-<span class=" -Color -Color-Bold">ERROR: </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>failed process: Process(`
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.julia/artifacts/af2355b4e003d5800b907f71eaf64c62b6e365f1/bin/mpiexec -np 3 julia send_recv.jl`, ProcessExited(9)) [9]
-
-Stacktrace:
-  [1] <span class=" -Color -Color-Bold">pipeline_error</span>
-    @ ./process.jl:531 [inlined]
-  [2] <span class=" -Color -Color-Bold">run(</span>::Cmd; wait::Bool<span class=" -Color -Color-Bold">)</span>
-    @ Base ./process.jl:446
-  [3] <span class=" -Color -Color-Bold">run(</span>::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ Base process.jl:444
-  [4] <span class=" -Color -Color-Bold">(::var&quot;#1#2&quot;)(</span>exe::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Magenta">Main</span> none:4
-  [5] <span class=" -Color -Color-Bold">(::MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;})(</span>cmd::String<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
-  [6] <span class=" -Color -Color-Bold">(::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String})()</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:49
-  [7] <span class=" -Color -Color-Bold">withenv(</span>::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String}, ::Pair{String, String}, ::Vararg{Pair{String, String}}<span class=" -Color -Color-Bold">)</span>
-    @ Base env.jl:172
-  [8] <span class=" -Color -Color-Bold">withenv_executable_wrapper(</span>f::Function, executable_path::String, PATH::String, LIBPATH::String, adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:48
-  [9] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}; kwargs::Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:716
- [10] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:714
- [11] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function; adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [12] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [13] <span class=" -Color -Color-Bold">mpiexec(</span>fn::var&quot;#1#2&quot;<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
- [14] top-level scope
-    @ none:4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My rank is 0
+ I received this: Point(2.0, 2.0)
 </pre></div>
 </div>
 </div>

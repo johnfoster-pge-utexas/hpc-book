@@ -446,89 +446,14 @@ ranks evenly</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: 
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original array on rank 0:
  [100, 200]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching no method matching Scatter(Scatter(::::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vector{Int64}, ::Type{Int64}, ::MPI.CommNothing, ::Type{Int64}, ::MPI.Comm; ; 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>root=root=00))
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closest candidates are:
-  Scatter(::Any, ::Type{T}, !Matched::Integer, !Matched::MPI.Comm) where T at ~/.julia/packages/MPI/08SPr/src/collective.jl:148 got unsupported keyword argument &quot;root&quot;
-  Scatter(::Any, !Matched::Integer, !Matched::Integer, !Matched::MPI.Comm) at /usr/local/julia1.7.2/share/julia/base/deprecated.jl:70 got unsupported keyword argument &quot;root&quot;
-Stacktrace:
- [1] top-level scope
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closest candidates are:
-  Scatter(::Any, ::Type{T}, !Matched::Integer, !Matched::MPI.Comm) where T at ~/.julia/packages/MPI/08SPr/src/collective.jl:148 got unsupported keyword argument &quot;root&quot;
-  Scatter(::Any, !Matched::Integer, !Matched::Integer, !Matched::MPI.Comm) at /usr/local/julia1.7.2/share/julia/base/deprecated.jl:70 got unsupported keyword argument &quot;root&quot;
-Stacktrace:
- [1] top-level scope
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   @ ~/work/hpc-book/hpc-book/src/   @ ~/work/hpc-book/hpc-book/src/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scatter1.jl:17
-in expression starting at /home/runner/work/hpc-book/hpc-book/src/Scatter1.jl:17
-Scatter1.jl:17
-in expression starting at /home/runner/work/hpc-book/hpc-book/src/Scatter1.jl:17
-<span class=" -Color -Color-Bold">ERROR: </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>failed process: Process(`/home/runner/.julia/artifacts/af2355b4e003d5800b907f71eaf64c62b6e365f1/bin/mpiexec -np 2 julia Scatter1.jl`, ProcessExited(1)) [1]
-
-Stacktrace:
-  [1] <span class=" -Color -Color-Bold">pipeline_error</span>
-    @ ./process.jl:531 [inlined]
-  [2] <span class=" -Color -Color-Bold">run(</span>::Cmd; wait::Bool<span class=" -Color -Color-Bold">)</span>
-    @ Base ./process.jl:446
-  [3] <span class=" -Color -Color-Bold">run(</span>::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ Base process.jl:444
-  [4] <span class=" -Color -Color-Bold">(::var&quot;#1#2&quot;)(</span>exe::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Magenta">Main</span> none:4
-  [5] <span class=" -Color -Color-Bold">(::MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;})(</span>cmd::String<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
-  [6] <span class=" -Color -Color-Bold">(::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String})()</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:49
-  [7] <span class=" -Color -Color-Bold">withenv(</span>::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String}, ::Pair{String, String}, ::Vararg{Pair{String, String}}<span class=" -Color -Color-Bold">)</span>
-    @ Base env.jl:172
-  [8] <span class=" -Color -Color-Bold">withenv_executable_wrapper(</span>f::Function, executable_path::String, PATH::String, LIBPATH::String, adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:48
-  [9] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}; kwargs::Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:716
- [10] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:714
- [11] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function; adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [12] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [13] <span class=" -Color -Color-Bold">mpiexec(</span>fn::var&quot;#1#2&quot;<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
- [14] top-level scope
-    @ none:4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I got this on rank 0:
+ 100
+I got this on rank 1:
+ 200
 </pre></div>
 </div>
 </div>
@@ -562,89 +487,16 @@ Stacktrace:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original array on rank 0:
+ [0.6185207684136137 0.968588231499006; 0.35492104456879925 0.315139582575782]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: Original array on rank 0:
- [0.7626199145855244 0.6818991425600491; 0.7914660525484276 0.7460579197627839]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I got this array on 0:
+ [0.6185207684136137, 0.35492104456879925]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching Scatter!(::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching Scatter!(::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nothing, ::Vector{Float64}, ::MPI.Comm; 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>root=0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closest candidates are:
-  Scatter!(::Nothing, ::Any, !Matched::Integer, !Matched::MPI.Comm) at ~/.julia/packages/MPI/08SPr/src/collective.jl:132 got unsupported keyword argument &quot;root&quot;
-  Scatter!(::Nothing, ::AbstractArray, !Matched::Integer, !Matched::Integer, !Matched::MPI.Comm) at /usr/local/julia1.7.2/share/julia/base/deprecated.jl:70 got unsupported keyword argument &quot;root&quot;
-  Scatter!(::Any, ::AbstractArray, !Matched::Integer, !Matched::Integer, !Matched::MPI.Comm) at /usr/local/julia1.7.2/share/julia/base/deprecated.jl:70 got unsupported keyword argument &quot;root&quot;
-  ...
-Stacktrace:
- [1] top-level scope
-Matrix{Float64}, ::Vector{Float64}, ::MPI.Comm; 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>root=0)   @ ~/work/hpc-book/hpc-book/src/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scatter2.jl:17
-in expression starting at /home/runner/work/hpc-book/hpc-book/src/Scatter2.jl:17
-<span class=" -Color -Color-Bold">ERROR: </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>failed process: Process(`
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.julia/artifacts/af2355b4e003d5800b907f71eaf64c62b6e365f1/bin/mpiexec -np 2 julia Scatter2.jl`, ProcessExited(1)) [1]
-
-Stacktrace:
-  [1] <span class=" -Color -Color-Bold">pipeline_error</span>
-    @ ./process.jl:531 [inlined]
-  [2] <span class=" -Color -Color-Bold">run(</span>::Cmd; wait::Bool<span class=" -Color -Color-Bold">)</span>
-    @ Base ./process.jl:446
-  [3] <span class=" -Color -Color-Bold">run(</span>::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ Base process.jl:444
-  [4] <span class=" -Color -Color-Bold">(::var&quot;#1#2&quot;)(</span>exe::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Magenta">Main</span> none:4
-  [5] <span class=" -Color -Color-Bold">(::MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;})(</span>cmd::String<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
-  [6] <span class=" -Color -Color-Bold">(::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String})()</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:49
-  [7] <span class=" -Color -Color-Bold">withenv(</span>::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String}, ::Pair{String, String}, ::Vararg{Pair{String, String}}<span class=" -Color -Color-Bold">)</span>
-    @ Base env.jl:172
-  [8] <span class=" -Color -Color-Bold">withenv_executable_wrapper(</span>f::Function, executable_path::String, PATH::String, LIBPATH::String, adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:48
-  [9] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}; kwargs::Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:716
- [10] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:714
- [11] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function; adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [12] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [13] <span class=" -Color -Color-Bold">mpiexec(</span>fn::var&quot;#1#2&quot;<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
- [14] top-level scope
-    @ none:4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I got this array on 1:
+ [0.968588231499006, 0.315139582575782]
 </pre></div>
 </div>
 </div>
@@ -684,102 +536,14 @@ Stacktrace:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: 
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original array on rank 0:
- [0.18319437110879566 0.4222002392843601; 0.06283817786540602 0.5032447939753978]
+ [0.72533974740034 0.011240995965466904; 0.6883700648760186 0.17922077348645482]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching Scatterv!(::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching Scatterv!(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VBuffer{Nothing}, ::Vector{Float64}, ::MPI.Comm; 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>root=0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VBuffer{Matrix{Float64}}, ::Vector{Float64}, ::MPI.Comm
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>; root=0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closest candidates are:
-  Scatterv!(::VBuffer, ::Any, !Matched::Integer, !Matched::MPI.Comm) at ~/.julia/packages/MPI/08SPr/src/collective.jl:194 got unsupported keyword argument &quot;root&quot;
-  Scatterv!(::Any, ::AbstractArray, !Matched::Vector, !Matched::Integer, !Matched::MPI.Comm) at /usr/local/julia1.7.2/share/julia/base/deprecated.jl:70 got unsupported keyword argument &quot;root&quot;
-  Scatterv!(::Any, ::Any, !Matched::Vector, !Matched::Integer, !Matched::MPI.Comm) at /usr/local/julia1.7.2/share/julia/base/deprecated.jl:70 got unsupported keyword argument &quot;root&quot;
-  ...
-Stacktrace:
- [1] top-level scope
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   @ ~/work/hpc-book/hpc-book/src/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scatter3.jl:22
-in expression starting at /home/runner/work/hpc-book/hpc-book/src/Scatter3.jl:22
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">ERROR: </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>failed process: Process(`
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.julia/artifacts/af2355b4e003d5800b907f71eaf64c62b6e365f1/bin/mpiexec -np 2 julia Scatter3.jl`, ProcessExited(1)) [1]
-
-Stacktrace:
-  [1] <span class=" -Color -Color-Bold">pipeline_error</span>
-    @ ./process.jl:531 [inlined]
-  [2] <span class=" -Color -Color-Bold">run(</span>::Cmd; wait::Bool<span class=" -Color -Color-Bold">)</span>
-    @ Base ./process.jl:446
-  [3] <span class=" -Color -Color-Bold">run(</span>::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ Base process.jl:444
-  [4] <span class=" -Color -Color-Bold">(::var&quot;#1#2&quot;)(</span>exe::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Magenta">Main</span> none:4
-  [5] <span class=" -Color -Color-Bold">(::MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;})(</span>cmd::String<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
-  [6] <span class=" -Color -Color-Bold">(::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String})()</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:49
-  [7] <span class=" -Color -Color-Bold">withenv(</span>::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String}, ::Pair{String, String}, ::Vararg{Pair{String, String}}<span class=" -Color -Color-Bold">)</span>
-    @ Base env.jl:172
-  [8] <span class=" -Color -Color-Bold">withenv_executable_wrapper(</span>f::Function, executable_path::String, PATH::String, LIBPATH::String, adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:48
-  [9] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}; kwargs::Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:716
- [10] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:714
- [11] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function; adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [12] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [13] <span class=" -Color -Color-Bold">mpiexec(</span>fn::var&quot;#1#2&quot;<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
- [14] top-level scope
-    @ none:4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I got this array on 0:
+ [0.72533974740034]
+I got this array on 1:
+ [0.6883700648760186, 0.011240995965466904, 0.17922077348645482]
 </pre></div>
 </div>
 </div>
@@ -822,98 +586,18 @@ Stacktrace:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: 
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original array on rank 0:
  [100, 200]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I got this on 0:
+ 100
+I got this on 1:
+ 200
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching Scatter(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching Scatter(::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nothing, ::Type{Int64}, ::MPI.Comm; root=0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vector{Int64}, ::Type{Int64}, ::MPI.Comm; 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>root=0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closest candidates are:
-  Scatter(::Any, ::Type{T}, !Matched::Integer, !Matched::MPI.Comm) where T at ~/.julia/packages/MPI/08SPr/src/collective.jl:148 got unsupported keyword argument &quot;root&quot;
-  Scatter(::Any, !Matched::Integer, !Matched::Integer, !Matched::MPI.Comm) at /usr/local/julia1.7.2/share/julia/base/deprecated.jl:70 got unsupported keyword argument &quot;root&quot;
-Stacktrace:
- [1] top-level scope
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   @ ~/work/hpc-book/hpc-book/src/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gather.jl:16
-in expression starting at /home/runner/work/hpc-book/hpc-book/src/Gather.jl:16
-<span class=" -Color -Color-Bold">ERROR: </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>failed process: Process(`/home/runner/.julia/artifacts/af2355b4e003d5800b907f71eaf64c62b6e365f1/bin/mpiexec -np 2 julia Gather.jl`, ProcessExited(1)) [1]
-
-Stacktrace:
-  [1] <span class=" -Color -Color-Bold">pipeline_error</span>
-    @ ./process.jl:531 [inlined]
-  [2] <span class=" -Color -Color-Bold">run(</span>::Cmd; wait::Bool<span class=" -Color -Color-Bold">)</span>
-    @ Base ./process.jl:446
-  [3] <span class=" -Color -Color-Bold">run(</span>::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ Base process.jl:444
-  [4] <span class=" -Color -Color-Bold">(::var&quot;#1#2&quot;)(</span>exe::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Magenta">Main</span> none:4
-  [5] <span class=" -Color -Color-Bold">(::MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;})(</span>cmd::String<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
-  [6] <span class=" -Color -Color-Bold">(::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String})()</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:49
-  [7] <span class=" -Color -Color-Bold">withenv(</span>::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String}, ::Pair{String, String}, ::Vararg{Pair{String, String}}<span class=" -Color -Color-Bold">)</span>
-    @ Base env.jl:172
-  [8] <span class=" -Color -Color-Bold">withenv_executable_wrapper(</span>f::Function, executable_path::String, PATH::String, LIBPATH::String, adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:48
-  [9] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}; kwargs::Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:716
- [10] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:714
- [11] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function; adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [12] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [13] <span class=" -Color -Color-Bold">mpiexec(</span>fn::var&quot;#1#2&quot;<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
- [14] top-level scope
-    @ none:4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New array on rank 0:
+ [10000, 40000]
 </pre></div>
 </div>
 </div>
@@ -949,81 +633,11 @@ Stacktrace:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: ERROR: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching no method matching bcastbcast((::::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>String, ::MPI.CommNothing, ::MPI.Comm; 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>; rootroot==00))
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closest candidates are:
-  bcast(::Any, !Matched::Integer, !Matched::MPI.Comm) at ~/.julia/packages/MPI/08SPr/src/collective.jl:71 got unsupported keyword argument &quot;root&quot;
-Stacktrace:
- [1] top-level scope
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rank 0 recieved this message:
+  Hello from rank 0!
 
-Closest candidates are:
-  bcast(::Any, !Matched::Integer, !Matched::MPI.Comm) at ~/.julia/packages/MPI/08SPr/src/collective.jl:71 got unsupported keyword argument &quot;root&quot;
-Stacktrace:
- [1] top-level scope
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   @ ~/work/hpc-book/hpc-book/src/   @ ~/work/hpc-book/hpc-book/src/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>broadcast.jl:16
-in expression starting at /home/runner/work/hpc-book/hpc-book/src/broadcast.jl:16
-broadcast.jl:16
-in expression starting at /home/runner/work/hpc-book/hpc-book/src/broadcast.jl:16
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">ERROR: </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>failed process: Process(`
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.julia/artifacts/af2355b4e003d5800b907f71eaf64c62b6e365f1/bin/mpiexec -np 2 julia broadcast.jl`, ProcessExited(1)) [1]
-
-Stacktrace:
-  [1] <span class=" -Color -Color-Bold">pipeline_error</span>
-    @ ./process.jl:531 [inlined]
-  [2] <span class=" -Color -Color-Bold">run(</span>::Cmd; wait::Bool<span class=" -Color -Color-Bold">)</span>
-    @ Base ./process.jl:446
-  [3] <span class=" -Color -Color-Bold">run(</span>::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ Base process.jl:444
-  [4] <span class=" -Color -Color-Bold">(::var&quot;#1#2&quot;)(</span>exe::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Magenta">Main</span> none:4
-  [5] <span class=" -Color -Color-Bold">(::MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;})(</span>cmd::String<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
-  [6] <span class=" -Color -Color-Bold">(::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String})()</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:49
-  [7] <span class=" -Color -Color-Bold">withenv(</span>::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String}, ::Pair{String, String}, ::Vararg{Pair{String, String}}<span class=" -Color -Color-Bold">)</span>
-    @ Base env.jl:172
-  [8] <span class=" -Color -Color-Bold">withenv_executable_wrapper(</span>f::Function, executable_path::String, PATH::String, LIBPATH::String, adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:48
-  [9] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}; kwargs::Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:716
- [10] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:714
- [11] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function; adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [12] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [13] <span class=" -Color -Color-Bold">mpiexec(</span>fn::var&quot;#1#2&quot;<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
- [14] top-level scope
-    @ none:4
+Rank 1 recieved this message:
+  Hello from rank 0!
 </pre></div>
 </div>
 </div>
@@ -1068,87 +682,10 @@ Original array on rank 0:
   [1, 2]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: ERROR: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching Reduce(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>::no method matching Reduce(::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vector{Int64}, ::typeof(+), ::MPI.Comm; Vector{Int64}, ::typeof(+), ::MPI.Commroot=; 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0)root=0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closest candidates are:
-  Reduce(::AbstractArray, ::Any, !Matched::Integer, !Matched::MPI.Comm) at ~/.julia/packages/MPI/08SPr/src/collective.jl:615 got unsupported keyword argument &quot;root&quot;
-  Reduce(::T, ::Any, !Matched::Integer, !Matched::MPI.Comm) where T at ~/.julia/packages/MPI/08SPr/src/collective.jl:622 got unsupported keyword argument &quot;root&quot;
-Stacktrace:
- [1] top-level scope
-
-Closest candidates are:
-  Reduce(::AbstractArray, ::Any, !Matched::Integer, !Matched::MPI.Comm) at ~/.julia/packages/MPI/08SPr/src/collective.jl:615 got unsupported keyword argument &quot;root&quot;
-  Reduce(::T, ::Any, !Matched::Integer, !Matched::MPI.Comm) where T at ~/.julia/packages/MPI/08SPr/src/collective.jl:622 got unsupported keyword argument &quot;root&quot;
-Stacktrace:
- [1] top-level scope
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   @ ~/work/hpc-book/hpc-book/src/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   @ ~/work/hpc-book/hpc-book/src/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reduce1.jl:14
-in expression starting at /home/runner/work/hpc-book/hpc-book/src/Reduce1.jl:14
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">ERROR: </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>failed process: Process(`/home/runner/.julia/artifacts/af2355b4e003d5800b907f71eaf64c62b6e365f1/bin/mpiexec -np 2 julia Reduce1.jl`, ProcessExited(1)) [1]
-
-Stacktrace:
-  [1] <span class=" -Color -Color-Bold">pipeline_error</span>
-    @ ./process.jl:531 [inlined]
-  [2] <span class=" -Color -Color-Bold">run(</span>::Cmd; wait::Bool<span class=" -Color -Color-Bold">)</span>
-    @ Base ./process.jl:446
-  [3] <span class=" -Color -Color-Bold">run(</span>::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ Base process.jl:444
-  [4] <span class=" -Color -Color-Bold">(::var&quot;#1#2&quot;)(</span>exe::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Magenta">Main</span> none:4
-  [5] <span class=" -Color -Color-Bold">(::MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;})(</span>cmd::String<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
-  [6] <span class=" -Color -Color-Bold">(::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String})()</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:49
-  [7] <span class=" -Color -Color-Bold">withenv(</span>::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String}, ::Pair{String, String}, ::Vararg{Pair{String, String}}<span class=" -Color -Color-Bold">)</span>
-    @ Base env.jl:172
-  [8] <span class=" -Color -Color-Bold">withenv_executable_wrapper(</span>f::Function, executable_path::String, PATH::String, LIBPATH::String, adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:48
-  [9] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}; kwargs::Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:716
- [10] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:714
- [11] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function; adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [12] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [13] <span class=" -Color -Color-Bold">mpiexec(</span>fn::var&quot;#1#2&quot;<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
- [14] top-level scope
-    @ none:4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New array on rank 0:
+  [2, 4]
+Total sum:
+  6
 </pre></div>
 </div>
 </div>
@@ -1194,114 +731,16 @@ Stacktrace:
   Point{Int64}(0, 0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original Point on rank 2:
-  Point{Int64}(2, 2)
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original Point on rank 1:
   Point{Int64}(1, 1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: ERROR: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original Point on rank 2:
+  Point{Int64}(2, 2)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LoadError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching Reduce(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MethodError: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no method matching 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reduce(no method matching Reduce(::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>::
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Point{Int64}, ::typeof(+), ::MPI.Comm; 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>root=0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closest candidates are:
-  Reduce(::T, ::Any, !Matched::Integer, !Matched::MPI.Comm) where T at ~/.julia/packages/MPI/08SPr/src/collective.jl:622 got unsupported keyword argument &quot;root&quot;
-  Reduce(!Matched::AbstractArray, ::Any, !Matched::Integer, !Matched::MPI.Comm) at ~/.julia/packages/MPI/08SPr/src/collective.jl:615 got unsupported keyword argument &quot;root&quot;
-Stacktrace:
- [1] top-level scope
-Point{Int64}, ::typeof(+), ::MPI.Comm
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>; root=0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Point   @ {Int64}, ::typeof(+), ::MPI.Comm~/work/hpc-book/hpc-book/src/; 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rootReduce2.jl:22
-in expression starting at /home/runner/work/hpc-book/hpc-book/src/Reduce2.jl:22
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=0<span class=" -Color -Color-Bold">ERROR: </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>failed process: Process(`
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.julia/artifacts/af2355b4e003d5800b907f71eaf64c62b6e365f1/bin/mpiexec -np 3 julia Reduce2.jl`, ProcessExited(1)) [1]
-
-Stacktrace:
-  [1] <span class=" -Color -Color-Bold">pipeline_error</span>
-    @ ./process.jl:531 [inlined]
-  [2] <span class=" -Color -Color-Bold">run(</span>::Cmd; wait::Bool<span class=" -Color -Color-Bold">)</span>
-    @ Base ./process.jl:446
-  [3] <span class=" -Color -Color-Bold">run(</span>::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ Base process.jl:444
-  [4] <span class=" -Color -Color-Bold">(::var&quot;#1#2&quot;)(</span>exe::Cmd<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Magenta">Main</span> none:4
-  [5] <span class=" -Color -Color-Bold">(::MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;})(</span>cmd::String<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
-  [6] <span class=" -Color -Color-Bold">(::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String})()</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:49
-  [7] <span class=" -Color -Color-Bold">withenv(</span>::JLLWrappers.var&quot;#2#3&quot;{MPI.var&quot;#10#11&quot;{var&quot;#1#2&quot;}, String}, ::Pair{String, String}, ::Vararg{Pair{String, String}}<span class=" -Color -Color-Bold">)</span>
-    @ Base env.jl:172
-  [8] <span class=" -Color -Color-Bold">withenv_executable_wrapper(</span>f::Function, executable_path::String, PATH::String, LIBPATH::String, adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Green">JLLWrappers</span> ~/.julia/packages/JLLWrappers/QpMQW/src/runtime.jl:48
-  [9] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}; kwargs::Base.Pairs{Symbol, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:716
- [10] <span class=" -Color -Color-Bold">invokelatest(</span>::Any, ::Any, ::Vararg{Any}<span class=" -Color -Color-Bold">)</span>
-    @ Base ./essentials.jl:714
- [11] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function; adjust_PATH::Bool, adjust_LIBPATH::Bool<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [12] <span class=" -Color -Color-Bold">mpiexec(</span>f::Function<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Yellow">MPICH_jll</span> ~/.julia/packages/JLLWrappers/QpMQW/src/products/executable_generators.jl:21
- [13] <span class=" -Color -Color-Bold">mpiexec(</span>fn::var&quot;#1#2&quot;<span class=" -Color -Color-Bold">)</span>
-    @ <span class=" -Color -Color-Cyan">MPI</span> ~/.julia/packages/MPI/08SPr/src/environment.jl:25
- [14] top-level scope
-    @ none:4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New Point on rank 0:
+  Point{Int64}(3, 3)
 </pre></div>
 </div>
 </div>

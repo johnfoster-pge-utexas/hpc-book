@@ -502,37 +502,23 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>InterruptException:
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">InterruptException</span>:
 
-Stacktrace:
-  [1] update_child_bboxes!
-    @ ~/.julia/packages/Plots/cPJQu/src/layouts.jl:328 [inlined]
-  [2] prepare_output(plt::Plots.Plot{Plots.GRBackend})
-    @ Plots ~/.julia/packages/Plots/cPJQu/src/plot.jl:241
-  [3] show(io::IOBuffer, m::MIME{Symbol(&quot;image/svg+xml&quot;)}, plt::Plots.Plot{Plots.GRBackend})
-    @ Plots ~/.julia/packages/Plots/cPJQu/src/output.jl:204
-  [4] sprint(::Function, ::MIME{Symbol(&quot;image/svg+xml&quot;)}, ::Vararg{Any}; context::Nothing, sizehint::Int64)
-    @ Base ./strings/io.jl:114
-  [5] sprint
-    @ ./strings/io.jl:108 [inlined]
-  [6] _ijulia_display_dict(plt::Plots.Plot{Plots.GRBackend})
-    @ Plots ~/.julia/packages/Plots/cPJQu/src/ijulia.jl:47
-  [7] display_dict(plt::Plots.Plot{Plots.GRBackend})
-    @ Plots ~/.julia/packages/Plots/cPJQu/src/init.jl:92
-  [8] #invokelatest#2
-    @ ./essentials.jl:716 [inlined]
-  [9] invokelatest
-    @ ./essentials.jl:714 [inlined]
- [10] execute_request(socket::ZMQ.Socket, msg::IJulia.Msg)
-    @ IJulia ~/.julia/packages/IJulia/e8kqU/src/execute_request.jl:112
- [11] #invokelatest#2
-    @ ./essentials.jl:716 [inlined]
- [12] invokelatest
-    @ ./essentials.jl:714 [inlined]
- [13] eventloop(socket::ZMQ.Socket)
-    @ IJulia ~/.julia/packages/IJulia/e8kqU/src/eventloop.jl:8
- [14] (::IJulia.var&quot;#15#18&quot;)()
-    @ IJulia ./task.jl:423
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#invokelatest#2</span>
+   <span class="o">@</span> <span class="o">./</span><span class="n">essentials</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">716</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">invokelatest</span>
+   <span class="o">@</span> <span class="o">./</span><span class="n">essentials</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">714</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">execute_request</span><span class="p">(</span><span class="n">socket</span><span class="p">::</span><span class="n">ZMQ</span><span class="o">.</span><span class="n">Socket</span><span class="p">,</span> <span class="n">msg</span><span class="p">::</span><span class="n">IJulia</span><span class="o">.</span><span class="n">Msg</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">e8kqU</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">execute_request</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">112</span>
+ <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="c1">#invokelatest#2</span>
+   <span class="o">@</span> <span class="o">./</span><span class="n">essentials</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">716</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">invokelatest</span>
+   <span class="o">@</span> <span class="o">./</span><span class="n">essentials</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">714</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="n">eventloop</span><span class="p">(</span><span class="n">socket</span><span class="p">::</span><span class="n">ZMQ</span><span class="o">.</span><span class="n">Socket</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">e8kqU</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">eventloop</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">8</span>
+ <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="p">(::</span><span class="n">IJulia</span><span class="o">.</span><span class="n">var</span><span class="s2">&quot;#15#18&quot;</span><span class="p">)()</span>
+   <span class="o">@</span> <span class="n">IJulia</span> <span class="o">./</span><span class="n">task</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">423</span>
 </pre></div>
 </div>
 </div>
